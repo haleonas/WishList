@@ -16,47 +16,12 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10694382-1b0e-4739-8de1-42a15e2c2d90" name="Default Changelist" comment="init">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/wishlist.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEnd/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEnd/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEnd/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEnd/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/babel.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/public/img/icons/android-chrome-192x192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/public/img/icons/android-chrome-512x512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/public/img/icons/android-chrome-maskable-192x192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/public/img/icons/android-chrome-maskable-512x512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/public/img/icons/apple-touch-icon-120x120.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/public/img/icons/apple-touch-icon-152x152.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/public/img/icons/apple-touch-icon-180x180.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/public/img/icons/apple-touch-icon-60x60.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/public/img/icons/apple-touch-icon-76x76.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/public/img/icons/apple-touch-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/public/img/icons/favicon-16x16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/public/img/icons/favicon-32x32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/public/img/icons/msapplication-icon-144x144.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/public/img/icons/mstile-150x150.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/public/img/icons/safari-pinned-tab.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/src/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/src/assets/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/src/components/HelloWorld.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/src/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/src/registerServiceWorker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/src/router/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/src/store/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/src/views/About.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/src/views/Home.vue" afterDir="false" />
+    <list default="true" id="10694382-1b0e-4739-8de1-42a15e2c2d90" name="Default Changelist" comment="small changes">
+      <change afterPath="$PROJECT_DIR$/FrontEnd/src/views/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/router/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,13 +32,22 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="list" />
+      </map>
+    </option>
     <option name="RECENT_COMMON_BRANCH" value="BackEnd_Master" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="SYNC" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/BackEnd/index.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/BackEnd/package.json" />
