@@ -12,12 +12,12 @@
           <b-input type="text" v-model="itemDescription" placeholder="Description of item" required/>
         </b-field>
         <b-field label="Url suggestion">
-          <b-input type="text" v-model="itemUrl" placeholder="Url suggestion" required/>
+          <b-input type="url" v-model="itemUrl" placeholder="Url suggestion" required/>
         </b-field>
       </section>
       <footer class="modal-card-foot">
         <button class="button" type="button" @click="$parent.close()">close</button>
-        <button @click="test" class="button is-primary" v-if="itemName && itemDescription">add item</button>
+        <button @click="addItem" class="button is-primary" v-if="itemName && itemDescription">add item</button>
       </footer>
     </div>
   </form>
@@ -39,8 +39,8 @@ export default {
     }
   },
   methods: {
-    test() {
-      this.$parent.close()
+    addItem() {
+     //this.$parent.close()
       this.$emit('items-added', {name: this.itemName, description: this.itemDescription,url:this.itemUrl})
       this.itemName = ''
       this.itemDescription = ''

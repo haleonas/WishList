@@ -18,6 +18,10 @@
   <component name="ChangeListManager">
     <list default="true" id="10694382-1b0e-4739-8de1-42a15e2c2d90" name="Default Changelist" comment="small changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/components/AddItemForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/components/AddItemForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/components/ListItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/components/ListItem.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/views/CheckList.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/src/views/CreateList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/views/CreateList.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -145,6 +149,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="added a list component for either create a list or edit a current list" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597660556733">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597660556733" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1597142120769">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

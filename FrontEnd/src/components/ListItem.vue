@@ -1,8 +1,8 @@
 <template>
   <div>
-    <section>{{ item.name }}</section>
-    <section>{{ item.description }}</section>
-    <section>{{item.url}}</section>
+    <section>Name: {{ item.name }}</section>
+    <section>Description: {{item.description}}    </section>
+    <section>Url: <a :href="item.url" target="_blank">Url Suggestion</a></section>
     <button class="button" @click="modalForm">Change Details</button>
     <button class="button" @click="remove(item)">Remove</button>
   </div>
@@ -22,7 +22,7 @@ export default {
       this.$buefy.modal.open({
         parent: this,
         component: AddItemForm,
-        props: {name: this.item.name, description: this.item.description},
+        props: {name: this.item.name, description: this.item.description,url:this.item.url},
         hasModalCard: true,
         trapFocus: true,
         events: {

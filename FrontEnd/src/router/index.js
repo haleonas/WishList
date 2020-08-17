@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import CreateList from "@/views/CreateList";
-import CheckList from "@/views/CheckList";
+import CreateList from '@/views/CreateList'
 
 Vue.use(VueRouter)
 
@@ -21,18 +20,13 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
     },
     {
-        path:'/checklist/:list',
-        name: 'ListParam',
-        component: CheckList
-    },
-    {
         path:'/createlist',
-        name: 'List',
+        name: 'EmptyList',
         component: CreateList
     },
     {
-        path:'/list/:list',
-        name: 'List',
+        path:'/createlist/:list',
+        name: 'ContinueList',
         component: CreateList
     },
 ]

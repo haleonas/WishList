@@ -1,22 +1,26 @@
 <template>
   <div>
       <div v-for="(item,index) in listItems" :key="index">
-        <app-hej-varlden :item="item" :remove="remove"></app-hej-varlden>
+        <app-list-item :item="item" :remove="remove"/>
       </div>
       <button class="button is-primary is-medium"
               @click="itemForm">
         Add item to wishlist
       </button>
-    <button class="button is-medium" @click="createList"></button>
+    <button class="button is-medium" @click="createList">Create List</button>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import AddItemForm from "@/components/AddItemForm";
+import ListItem from "@/components/ListItem";
 
 export default {
   name: "List",
+  components:{
+    appListItem: ListItem
+  },
   data(){
     return {
       listItems: []
@@ -30,16 +34,35 @@ export default {
 
     },
     async checkList() {
-      await axios.get('')
       if (this.$route.params.list) {
+        await axios.get('')
+
+        //check if owner of the list in the backend
+        //if not print not creator, clear storage  and return
+        //if owner show list and items
+
         console.log('this route had a parameter')
       }
     },
     itemForm(){
-
+      this.$buefy.modal.open({
+        parent: this,
+        component: AddItemForm,
+        props: {name: '', description: ''},
+        hasModalCard: true,
+        trapFocus: true,
+        events: {
+          'items-added': value => {
+            this.listItems.push(value)
+          }
+        }
+      })
+    },
+    remove(value){
+      const index = this.listItems.findIndex(item => item === value)
+      this.listItems.splice(index,1)
     }
   },
-
 }
 </script>
 
