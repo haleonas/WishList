@@ -17,11 +17,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10694382-1b0e-4739-8de1-42a15e2c2d90" name="Default Changelist" comment="small changes">
-      <change afterPath="$PROJECT_DIR$/FrontEnd/src/views/List.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/src/components/AddItemForm.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/src/views/CheckList.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/views/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/views/CreateList.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +36,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="package.json" />
         <option value="Vue Single File Component" />
       </list>
     </option>
@@ -143,7 +148,8 @@
       <path value="$PROJECT_DIR$/FrontEnd" />
     </ignored-roots>
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="added a list component for either create a list or edit a current list" />
+    <option name="LAST_COMMIT_MESSAGE" value="added a list component for either create a list or edit a current list" />
   </component>
   <component name="WindowStateProjectService">
     <state x="461" y="165" key="SettingsEditor" timestamp="1597142120769">
