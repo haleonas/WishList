@@ -31,14 +31,22 @@ export default {
   },
   methods: {
     async createList(){
+      if(!this.$route.params.list){
+        console.log('I have no id, create one')
+        //send as a list to be added to database
 
+        return
+      }
+
+      //else send as a list to be updated in the database
+      console.log('ketchup')
     },
     async checkList() {
       if (this.$route.params.list) {
         await axios.get('')
 
         //check if owner of the list in the backend
-        //if not print not creator, clear storage  and return
+        //if not print not creator, clear storage and return
         //if owner show list and items
 
         console.log('this route had a parameter')
