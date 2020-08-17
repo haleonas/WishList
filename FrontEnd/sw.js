@@ -3,7 +3,7 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox
 if(workbox){
     workbox.precaching.precacheAndRoute(['/index.html'])
     workbox.routing.registerRoute(
-        /\.(css|html|js|webmanifest)$/,
+        /\.(css|html|js|webmanifest|manifest|json)$/,
             new workbox.strategies.NetworkFirst()
     )
     workbox.routing.registerRoute(

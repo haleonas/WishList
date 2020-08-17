@@ -29,7 +29,7 @@ export default {
   props: {
     name: String,
     description: String,
-    url:String
+    url: String
   },
   data() {
     return {
@@ -40,8 +40,8 @@ export default {
   },
   methods: {
     addItem() {
-     //this.$parent.close()
-      this.$emit('items-added', {name: this.itemName, description: this.itemDescription,url:this.itemUrl})
+      this.$parent.close()
+      this.$emit('items-added', {name: this.itemName, description: this.itemDescription, url: this.itemUrl})
       this.itemName = ''
       this.itemDescription = ''
       this.itemUrl = ''
