@@ -1,12 +1,42 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home</router-link>
+      |
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+export default {
+  updated() {
+    this.displayNotification()
+  },
+  methods: {
+    displayNotification() {
+      if (Notification.permission === 'granted') {
+        if (!navigator.onLine) {
+          navigator.serviceWorker.ready
+              .then(ServiceWorkerRegistration => {
+
+                console.log(ServiceWorkerRegistration)
+                const title = 'Offline notification'
+                const options = {
+                  body: 'You are currently offline',
+                  tag: 'confirm-notification',
+                  renotify: true
+                }
+                ServiceWorkerRegistration.showNotification(title, options)
+              })
+        }
+      }
+    }
+  }
+
+}
+</script>
 
 <style>
 #app {

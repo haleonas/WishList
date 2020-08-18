@@ -16,13 +16,12 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10694382-1b0e-4739-8de1-42a15e2c2d90" name="Default Changelist" comment="added service worker support&#10;now being able to continue on site even while offline.&#10;added some fixes to some parts">
+    <list default="true" id="10694382-1b0e-4739-8de1-42a15e2c2d90" name="Default Changelist" comment="added push notifications for when the user is offline, will move it to header when it is created">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/src/views/CreateList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/views/CreateList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/sw.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/sw.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +98,8 @@
       <workItem from="1597141899215" duration="106000" />
       <workItem from="1597142021706" duration="54000" />
       <workItem from="1597142079422" duration="42000" />
+      <workItem from="1597759842522" duration="320000" />
+      <workItem from="1597760275206" duration="402000" />
     </task>
     <task id="LOCAL−00001" summary="init">
       <created>1597138450259</created>
@@ -124,7 +125,13 @@
       <option name="presentableId" value="LOCAL−00004" />
       <updated>1597662143324</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL−00005" summary="added push notifications for when the user is offline, will move it to header when it is created">
+      <created>1597759741340</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1597759741340</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,7 +169,8 @@
     <MESSAGE value="init" />
     <MESSAGE value="added a list component for either create a list or edit a current list" />
     <MESSAGE value="the user can now create a list and add items to it, save functionality is something that will be added when login functions are available same with getting a already created list" />
-    <option name="LAST_COMMIT_MESSAGE" value="the user can now create a list and add items to it, save functionality is something that will be added when login functions are available same with getting a already created list" />
+    <MESSAGE value="added push notifications for when the user is offline, will move it to header when it is created" />
+    <option name="LAST_COMMIT_MESSAGE" value="added push notifications for when the user is offline, will move it to header when it is created" />
   </component>
   <component name="WindowStateProjectService">
     <state x="714" y="344" key="#Notifications" timestamp="1597747439488">
@@ -194,10 +202,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597142120769" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597662151818">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597759758323">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597662151818" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597759758323" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1597756665031">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

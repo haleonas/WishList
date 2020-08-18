@@ -15,6 +15,7 @@
 import axios from 'axios'
 import AddItemForm from "@/components/AddItemForm";
 import ListItem from "@/components/ListItem";
+import uniqid from 'uniqid'
 
 export default {
   name: "List",
@@ -29,17 +30,12 @@ export default {
   beforeMount() {
     this.checkList()
   },
-
-  mounted() {
-    Notification.requestPermission()
-    this.displayNotification()
-  },
   methods: {
     async createList() {
       if (!this.$route.params.list) {
         console.log('I have no id, create one')
         //send as a list to be added to database
-
+        console.log(uniqid())
         return
       }
 
@@ -74,25 +70,8 @@ export default {
     remove(value) {
       const index = this.listItems.findIndex(item => item === value)
       this.listItems.splice(index, 1)
-    },
-    displayNotification() {
-      if (Notification.permission === 'granted') {
-        if(!navigator.onLine){
-          navigator.serviceWorker.ready
-              .then(ServiceWorkerRegistration => {
-
-                console.log(ServiceWorkerRegistration)
-                const title = 'Offline notification'
-                const options = {
-                  body: 'You are currently offline',
-                  tag: 'confirm-notification',
-                  renotify: true
-                }
-                ServiceWorkerRegistration.showNotification(title, options)
-              })
-        }
-      }
-    }}
+    }
+  }
 }
 </script>
 
