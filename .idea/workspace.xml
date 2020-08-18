@@ -11,20 +11,18 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:createList" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10694382-1b0e-4739-8de1-42a15e2c2d90" name="Default Changelist" comment="added service worker support&#10;now being able to continue on site even while offline.&#10;added some fixes to some parts">
-      <change afterPath="$PROJECT_DIR$/FrontEnd/src/extra/functions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/extra/keys.js" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/extra/keys.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/views/CreateList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/views/CreateList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/sw.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/sw.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,12 +64,20 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/FrontEnd/src/extra" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\altes\OneDrive\Skrivbord\webproject\wishlist\FrontEnd\src\extra" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\altes\OneDrive\Skrivbord\webproject\wishlist\BackEnd\extra" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -159,10 +165,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="the user can now create a list and add items to it, save functionality is something that will be added when login functions are available same with getting a already created list" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="518" y="227" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597739816805">
-      <screen x="0" y="23" width="1440" height="796" />
+    <state x="714" y="344" key="#Notifications" timestamp="1597747439488">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597660556733" />
+    <state x="714" y="344" key="#Notifications/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597747439488" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597747361445">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597747361445" />
     <state x="518" y="227" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.796@0.23.1440.796" timestamp="1597739816805" />
     <state width="1398" height="204" key="GridCell.Tab.0.bottom" timestamp="1597702724441">
       <screen x="0" y="23" width="1440" height="796" />
@@ -188,5 +198,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597662151818" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1597756665031">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597756665031" />
+    <state x="623" y="225" key="search.everywhere.popup" timestamp="1597748965071">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597748965071" />
   </component>
 </project>

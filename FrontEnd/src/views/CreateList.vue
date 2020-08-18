@@ -1,12 +1,12 @@
 <template>
   <div>
-      <div v-for="(item,index) in listItems" :key="index">
-        <app-list-item :item="item" :remove="remove"/>
-      </div>
-      <button class="button is-primary is-medium"
-              @click="itemForm">
-        Add item to wishlist
-      </button>
+    <div v-for="(item,index) in listItems" :key="index">
+      <app-list-item :item="item" :remove="remove"/>
+    </div>
+    <button class="button is-primary is-medium"
+            @click="itemForm">
+      Add item to wishlist
+    </button>
     <button class="button is-medium" @click="createList">Create List</button>
   </div>
 </template>
@@ -18,10 +18,10 @@ import ListItem from "@/components/ListItem";
 
 export default {
   name: "List",
-  components:{
+  components: {
     appListItem: ListItem
   },
-  data(){
+  data() {
     return {
       listItems: []
     }
@@ -29,9 +29,14 @@ export default {
   beforeMount() {
     this.checkList()
   },
+
+  mounted() {
+    Notification.requestPermission()
+    this.displayNotification()
+  },
   methods: {
-    async createList(){
-      if(!this.$route.params.list){
+    async createList() {
+      if (!this.$route.params.list) {
         console.log('I have no id, create one')
         //send as a list to be added to database
 
@@ -52,7 +57,7 @@ export default {
         console.log('this route had a parameter')
       }
     },
-    itemForm(){
+    itemForm() {
       this.$buefy.modal.open({
         parent: this,
         component: AddItemForm,
@@ -66,11 +71,28 @@ export default {
         }
       })
     },
-    remove(value){
+    remove(value) {
       const index = this.listItems.findIndex(item => item === value)
-      this.listItems.splice(index,1)
-    }
-  },
+      this.listItems.splice(index, 1)
+    },
+    displayNotification() {
+      if (Notification.permission === 'granted') {
+        if(!navigator.onLine){
+          navigator.serviceWorker.ready
+              .then(ServiceWorkerRegistration => {
+
+                console.log(ServiceWorkerRegistration)
+                const title = 'Offline notification'
+                const options = {
+                  body: 'You are currently offline',
+                  tag: 'confirm-notification',
+                  renotify: true
+                }
+                ServiceWorkerRegistration.showNotification(title, options)
+              })
+        }
+      }
+    }}
 }
 </script>
 

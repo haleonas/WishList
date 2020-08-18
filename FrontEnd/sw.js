@@ -1,10 +1,8 @@
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
-
-if(workbox){
+if (workbox) {
     workbox.precaching.precacheAndRoute(['/index.html'])
     workbox.routing.registerRoute(
         /\.(css|html|js|webmanifest|manifest|json)$/,
-            new workbox.strategies.NetworkFirst()
+        new workbox.strategies.NetworkFirst()
     )
     workbox.routing.registerRoute(
         /\.(png|jpg)$/,
@@ -12,7 +10,7 @@ if(workbox){
     )
     workbox.routing.registerRoute(
         "https://avancera.app/cities/",
-        new workbox.strategies.StaleWhileRevalidate,'GET'
+        new workbox.strategies.StaleWhileRevalidate, 'GET'
     )
     //hemside url, offline strategi, requesttyp
 }
@@ -23,4 +21,10 @@ self.addEventListener('offline', () => {
 
 self.addEventListener('online', () => {
     console.log('Online')
+})
+
+self.addEventListener('push', event => {
+    const {body, title} = event.data.json()
+
+    self.registration.showNotification(title, {body})
 })

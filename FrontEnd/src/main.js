@@ -5,14 +5,28 @@ import router from './router'
 import './registerServiceWorker'
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
-//import {urlBase64ToUint8Array} from '../extra'
+import {urlBase64ToUint8Array} from './extra/functions'
+import {PUBLIC_VAPID_KEY} from './extra/keys'
 
 Vue.use(Buefy)
 
 Vue.config.productionTip = false
 
 new Vue({
-  store,
-  router,
-  render: h => h(App)
+    store,
+    router,
+    render: h => h(App)
 }).$mount('#app')
+
+if (navigator.serviceWorker && Notification.permission === 'granted') {
+    navigator.serviceWorker.ready.then(swr => {
+        swr.pushManager
+            .subscribe({
+                applicationServerKey: urlBase64ToUint8Array(PUBLIC_VAPID_KEY),
+                userVisibleOnly: true
+            })
+            .then(pushSubscription => {
+                console.log(pushSubscription)
+            })
+    })
+}
