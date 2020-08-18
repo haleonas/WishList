@@ -5,6 +5,7 @@ import router from './router'
 import './registerServiceWorker'
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
+//import {urlBase64ToUint8Array} from '../extra'
 
 Vue.use(Buefy)
 

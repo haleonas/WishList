@@ -2,6 +2,7 @@ const express = require('express')
 const sqlite = require('sqlite')
 const sqlite3 = require('sqlite3')
 const cors = require('cors')
+const {PRIVATE_VAPID_KEY, PUBLIC_VAPID_KEY} = require('./keys')
 
 const app = express()
 
