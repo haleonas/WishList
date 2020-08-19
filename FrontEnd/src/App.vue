@@ -9,9 +9,11 @@
 
 <script>
 import Navbar from "./components/navbar/Navbar";
+import myWishinglist from "./components/navbar/components/myWishinglists";
 export default {
   components: {
-    Navbar
+    Navbar,
+    myWishinglist
   }
 };
 </script>
