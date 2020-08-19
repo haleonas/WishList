@@ -11,16 +11,21 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:login_suggestion" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:login" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10694382-1b0e-4739-8de1-42a15e2c2d90" name="Default Changelist" comment="init">
+      <change afterPath="$PROJECT_DIR$/FrontEnd/src/components/navbar/Navbar.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/src/components/navbar/components/Links.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/src/components/navbar/components/Login.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/src/components/navbar/components/Logout.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/src/components/navbar/components/Register.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/components/navbar/components/Links.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/components/navbar/components/Links.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/components/navbar/components/Logout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/components/navbar/components/Logout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/components/Navbar.vue" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,27 +163,11 @@
       <option name="presentableId" value="LOCAL−00004" />
       <updated>1597142142460</updated>
     </task>
-    <task id="LOCAL−00005" summary="breaking up the navbar into components,&#10;made directories for components belonging to the navbar">
-      <created>1597792242509</created>
-      <option name="number" value="LOCAL−00005" />
-      <option name="presentableId" value="LOCAL−00005" />
-      <updated>1597792242509</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ORDER">
-      <list>
-        <option value="0" />
-        <option value="2" />
-        <option value="3" />
-        <option value="1" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -210,8 +199,7 @@
       <path value="$PROJECT_DIR$/FrontEnd" />
     </ignored-roots>
     <MESSAGE value="init" />
-    <MESSAGE value="breaking up the navbar into components,&#10;made directories for components belonging to the navbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="breaking up the navbar into components,&#10;made directories for components belonging to the navbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597393643961">
@@ -254,10 +242,6 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597142189894" />
-    <state x="488" y="141" key="git4idea.branch.GitSmartOperationDialog" timestamp="1597824726220">
-      <screen x="0" y="23" width="1440" height="796" />
-    </state>
-    <state x="488" y="141" key="git4idea.branch.GitSmartOperationDialog/0.23.1440.796@0.23.1440.796" timestamp="1597824726220" />
     <state x="677" y="328" key="jetbrains.nodejs.interpreters-dialog" timestamp="1597237769563">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

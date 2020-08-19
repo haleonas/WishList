@@ -30,7 +30,7 @@ export default {
   name: "Logout",
   methods: {
     async logout() {
-      await this.$store.dispatch("logout");
+      this.$store.dispatch("logout");
       try {
         let response = await axios.post(
             "http://localhost:3000/logout",
@@ -41,7 +41,7 @@ export default {
             {withCredentials: true}
         );
         console.log(response);
-        await this.$router.push("/");
+        this.$router.push("/");
       } catch (err) {
         console.log(err);
       }
@@ -49,3 +49,7 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+</style>
