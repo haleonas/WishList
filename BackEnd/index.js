@@ -2,17 +2,19 @@ const express = require('express')
 const sqlite = require('sqlite')
 const sqlite3 = require('sqlite3')
 const cors = require('cors')
-const { v4: uuidv4 } = require('uuid')
+const {v4: uuidv4} = require('uuid')
 
 const app = express()
 
-
-app.use(cors({ credentials: true, origin: 'http://localhost:8080' }), express.json(), express.static('assets'))
+app.use(
+    cors({credentials: true, origin: 'http://localhost:8080'}),
+    express.json(),
+    express.static('assets'))
 
 let database_
 
 sqlite
-    .open({ driver: sqlite3.Database, filename: 'wishlist.sqlite' })
+    .open({driver: sqlite3.Database, filename: 'wishlist.sqlite'})
     .then(database => {
         database_ = database
     })
@@ -25,7 +27,7 @@ app.post('/register', (req, res) => {
         })
         .catch((e) => {
             console.log('something went wrong ', e)
-            res.status(401).send('Failed to reguster', e)
+            res.status(401).send({message: 'Failed to register, ', e})
         })
 })
 
@@ -37,7 +39,7 @@ app.post('/login', async (req, res) => {
         const token = uuidv4()
         await database_.all('INSERT INTO sessionStorage(token,userid) VALUES(?,?)', [token, userid])
         res.set('Set-Cookie', `token=${token}; path=/; SameSite = LAX`)
-        res.status(200).send({ token, user: rows[0] })
+        res.status(200).send({token, user: rows[0]})
     } else {
         console.log('not logged in')
         res.status(401).send('not logged in')

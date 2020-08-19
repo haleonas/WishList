@@ -11,7 +11,3 @@ export default {
 name: "Links"
 }
 </script>
-
-<style scoped>
-
-</style>
