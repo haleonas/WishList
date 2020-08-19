@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link>
-      |
-      <router-link to="/about">About</router-link>
+      <navbar></navbar>
     </div>
     <router-view/>
   </div>
 </template>
 
 <script>
+import Navbar from "./components/navbar/Navbar";
+
 export default {
+  components: {
+    Navbar
+  },
   updated() {
     this.displayNotification()
   },
@@ -34,7 +37,6 @@ export default {
       }
     }
   }
-
 }
 </script>
 

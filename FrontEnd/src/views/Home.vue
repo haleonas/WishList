@@ -1,18 +1,50 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <section class="hero is-success is-fullheight is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <p class="title">Never get two pairs of identical socks again!</p>
+          <p class="subtitle">Register today to start sharing your wishlists with friends and family</p>
+        </div>
+      </div>
+    </section>
+
+    <!--<app-name-selector @name-selected="updateSelected"></app-name-selector>
+
+    {{ selected }}-->
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+//import NameSelector from "@/components/NameSelector";
+//import axios from "axios";
 
 export default {
-  name: 'Home',
+  name: "Home",
+  data() {
+    return {
+      username: "",
+      password: "",
+      selected: []
+    };
+  },
   components: {
-    HelloWorld
+    //appNameSelector: NameSelector
+  },
+  methods: {
+    /*updateSelected(item) {
+      this.selected = item;
+    },
+    async loginUser() {
+      await axios.post(
+        "http://localhost:3000/login",
+        {
+          username: this.username,
+          password: this.password
+        },
+        { withCredentials: true }
+      );
+    }*/
   }
-}
+};
 </script>

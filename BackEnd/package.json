@@ -4,7 +4,7 @@
   "description": "The backend for the wishlist frontend",
   "main": "index.js",
   "scripts": {
-    "server": "npx run index.js"
+    "server": "npx nodemon index.js"
   },
   "author": "Vue em' all",
   "license": "ISC",
@@ -12,6 +12,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "sqlite": "^4.0.14",
-    "sqlite3": "^4.2.0"
+    "sqlite3": "^4.2.0",
+    "uuid": "^8.3.0"
   }
 }
