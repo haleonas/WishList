@@ -80,7 +80,7 @@ export default {
         console.log(response.data)
         if(response.status === 200){
           this.notification('List saved')
-          await this.$router.push(`/createlist/${listUrl}`);
+          this.$route.params.list ? location.reload() : await this.$router.push(`/createlist/${listUrl}`);
         } else {
           this.notification('Something went wrong')
         }

@@ -100,8 +100,8 @@ app.post('/createlist', authenticate, async (req, res) => {
 
         for (let i = 0; i < req.body.items.length; i++) {
             await database_.run(
-                'INSERT INTO list_items(list_id,item_name,item_description,item_url) VAlUES(?,?,?,?)',
-                [row.lastID, req.body.items[i].item_name, req.body.items[i].item_description, req.body.items[i].item_url])
+                'INSERT INTO list_items(list_id,item_name,item_description,item_url,completed) VAlUES(?,?,?,?,?)',
+                [row.lastID, req.body.items[i].item_name, req.body.items[i].item_description, req.body.items[i].item_url,false])
         }
         for (let i = 0; i < req.body.friends.length; i++) {
             await database_.run(
@@ -141,8 +141,8 @@ app.patch('/createlist', authenticate, async (req, res) => {
         console.log('[CreateList.patch]: reinserting all friends to the list')
         for (let i = 0; i < req.body.items.length; i++) {
             await database_.run(
-                'INSERT INTO list_items(list_id,item_name,item_description,item_url) VAlUES(?,?,?,?)',
-                [row[0].list_id, req.body.items[i].item_name, req.body.items[i].item_description, req.body.items[i].item_url])
+                'INSERT INTO list_items(list_id,item_name,item_description,item_url,completed) VAlUES(?,?,?,?,?)',
+                [row[0].list_id, req.body.items[i].item_name, req.body.items[i].item_description, req.body.items[i].item_url,req.body.items[i].completed ? req.body.items[i].completed : false])
         }
 
         //reinserting friends
@@ -172,7 +172,7 @@ app.get('/editlist', authenticate, async (req, res) => {
         } else if (lists.length === 1) {
             try {
                 console.log('[Editlist]:Retrieving list information')
-                const listItems = await database_.all('SELECT item_name, item_description, item_url FROM list_items where list_id = ? ', [lists[0].list_id])
+                const listItems = await database_.all('SELECT item_name, item_description, item_url, completed FROM list_items where list_id = ? ', [lists[0].list_id])
                 const listUsers = await database_.all('select *from list_users_view where list_id = ?', [lists[0].list_id])
                 let obj = {
                     listName: lists[0].list_name,
