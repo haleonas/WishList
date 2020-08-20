@@ -9,6 +9,8 @@
 
 <script>
 import Navbar from "./components/navbar/Navbar";
+import io from 'socket.io-client'
+
 
 export default {
   components: {
@@ -16,6 +18,25 @@ export default {
   },
   updated() {
     this.displayNotification()
+  },
+  mounted() {
+    //connecting to server socket
+    const client = io.connect('http://localhost:3000')
+
+    //to make sure that if the user is logged in, the user will get all the users
+    if (this.$store.getters.isLoggedIn) {
+      console.log('retrieving users')
+      this.$store.dispatch('retrieveUsers')
+    }
+
+    //when backend makes a emit for 'update', update all retrieved users
+    client.on('update', () => {
+      console.log('Someone has registered')
+      if (this.$store.getters.isLoggedIn) {
+        console.log('retrieving new users')
+        this.$store.dispatch('retrieveUsers')
+      }
+    })
   },
   methods: {
     displayNotification() {

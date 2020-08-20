@@ -39,6 +39,11 @@ export default {
           }
         }
       }
+    },
+    options(){
+      this.options.map(option => {
+        option.optionName = `${option.firstname} ${option.lastname} (${option.phone})`
+      })
     }
   },
   methods: {

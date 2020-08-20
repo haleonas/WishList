@@ -5,9 +5,22 @@ const cors = require('cors')
 const {v4: uuidv4} = require('uuid')
 //const {PRIVATE_VAPID_KEY, PUBLIC_VAPID_KEY} = require('./extra/keys')
 const cookieParser = require('cookie-parser')
-
-
 const app = express()
+const server = require('http').createServer(app)
+const io = require('socket.io')(server)
+
+const connectedSockets = []
+
+io.on('connection', client => {
+    connectedSockets.push(client)
+
+    io.emit('message')
+
+    client.on('disconnect', client => {
+        const index = connectedSockets.findIndex(socket => socket === client)
+        connectedSockets.splice(index, 1)
+    })
+})
 
 app.use(
     cors({credentials: true, origin: 'http://localhost:8080'}),
@@ -27,6 +40,9 @@ app.post('/register', (req, res) => {
     database_.run('INSERT INTO users(username,firstname,lastname,phone,password) VALUES(?,?,?,?,?)', [req.body.username, req.body.firstname, req.body.lastname, req.body.phone, req.body.password])
         .then(() => {
             console.log('User added')
+            connectedSockets.forEach(client => {
+                client.emit('update')
+            })
             res.status(200).send('User added')
         })
         .catch((e) => {
@@ -101,7 +117,7 @@ app.post('/createlist', authenticate, async (req, res) => {
         for (let i = 0; i < req.body.items.length; i++) {
             await database_.run(
                 'INSERT INTO list_items(list_id,item_name,item_description,item_url,completed) VAlUES(?,?,?,?,?)',
-                [row.lastID, req.body.items[i].item_name, req.body.items[i].item_description, req.body.items[i].item_url,false])
+                [row.lastID, req.body.items[i].item_name, req.body.items[i].item_description, req.body.items[i].item_url, false])
         }
         for (let i = 0; i < req.body.friends.length; i++) {
             await database_.run(
@@ -142,14 +158,14 @@ app.patch('/createlist', authenticate, async (req, res) => {
         for (let i = 0; i < req.body.items.length; i++) {
             await database_.run(
                 'INSERT INTO list_items(list_id,item_name,item_description,item_url,completed) VAlUES(?,?,?,?,?)',
-                [row[0].list_id, req.body.items[i].item_name, req.body.items[i].item_description, req.body.items[i].item_url,req.body.items[i].completed ? req.body.items[i].completed : false])
+                [row[0].list_id, req.body.items[i].item_name, req.body.items[i].item_description, req.body.items[i].item_url, req.body.items[i].completed ? req.body.items[i].completed : false])
         }
 
         //reinserting friends
         for (let i = 0; i < req.body.friends.length; i++) {
             await database_.run(
                 'INSERT INTO list_users(userid,list_id) VALUES(?,?)',
-                [req.body.friends[i].userid,row[0].list_id]
+                [req.body.friends[i].userid, row[0].list_id]
             )
         }
 
@@ -192,4 +208,4 @@ app.get('/editlist', authenticate, async (req, res) => {
     }
 })
 
-app.listen(3000)
+server.listen(3000)

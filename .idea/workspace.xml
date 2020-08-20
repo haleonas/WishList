@@ -16,10 +16,16 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10694382-1b0e-4739-8de1-42a15e2c2d90" name="Default Changelist" comment="fixed error handling when retrieving a list.&#10;gives a notification when there is something wrong when retrieving a list. &#10;updated message when user is not logged in case they are not logged in to the website">
+    <list default="true" id="10694382-1b0e-4739-8de1-42a15e2c2d90" name="Default Changelist" comment="fixed so that all items is by default false when it comes to if someone has bought the present or not.&#10;&#10;fixed so that even if the item is removed from the database it still will remember which items completed state were.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/views/CreateList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/views/CreateList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/components/NameSelector.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/components/NameSelector.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/store/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +139,8 @@
       <workItem from="1597221613853" duration="15211000" />
       <workItem from="1597392971716" duration="6359000" />
       <workItem from="1597915370496" duration="16400000" />
-      <workItem from="1597937189129" duration="1501000" />
+      <workItem from="1597937189129" duration="1799000" />
+      <workItem from="1597956544605" duration="6150000" />
     </task>
     <task id="LOCAL−00001" summary="init">
       <created>1597138450259</created>
@@ -183,7 +190,13 @@
       <option name="presentableId" value="LOCAL−00008" />
       <updated>1597933208637</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL−00009" summary="fixed so that all items is by default false when it comes to if someone has bought the present or not.&#10;&#10;fixed so that even if the item is removed from the database it still will remember which items completed state were.">
+      <created>1597939032527</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1597939032527</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,7 +246,8 @@
     <MESSAGE value="will now only show the create list options if you are logged in.&#10;retrieving all the users on the platform when a user logs in and removes it when login out.&#10;added functions to send all the users on the platform (not with passwords). &#10;added funtionality to add a list to the database. &#10;addded functionality to add the lists items when adding a list.&#10;added functionality to add participants to the list which being added to the database. &#10;&#10;added functionality to send a list to a user for editing. only sends a object back if it the creator requesting the list. &#10;&#10;added functionality to show a previous list for editing." />
     <MESSAGE value="saving the edited list to the database.&#10;fixed small problems in the ListItem.vue where tried to send to data it didn't have. &#10;added functionality so the server now will remove the edited list items to be sure that if an item is removed it will stay removed. &#10;adds all previous items after delete in case they were sent to the backend.&#10;did the same when it came friends" />
     <MESSAGE value="fixed error handling when retrieving a list.&#10;gives a notification when there is something wrong when retrieving a list. &#10;updated message when user is not logged in case they are not logged in to the website" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed error handling when retrieving a list.&#10;gives a notification when there is something wrong when retrieving a list. &#10;updated message when user is not logged in case they are not logged in to the website" />
+    <MESSAGE value="fixed so that all items is by default false when it comes to if someone has bought the present or not.&#10;&#10;fixed so that even if the item is removed from the database it still will remember which items completed state were." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed so that all items is by default false when it comes to if someone has bought the present or not.&#10;&#10;fixed so that even if the item is removed from the database it still will remember which items completed state were." />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597845717997">
@@ -248,25 +262,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597393235627" />
-    <state width="1877" height="234" key="GridCell.Tab.0.bottom" timestamp="1597938789777">
+    <state width="1877" height="234" key="GridCell.Tab.0.bottom" timestamp="1597962190998">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597938789777" />
+    <state width="1877" height="234" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597962190998" />
     <state width="1398" height="204" key="GridCell.Tab.0.bottom/0.23.1440.796@0.23.1440.796" timestamp="1597791558245" />
-    <state width="1877" height="234" key="GridCell.Tab.0.center" timestamp="1597938789777">
+    <state width="1877" height="234" key="GridCell.Tab.0.center" timestamp="1597962190998">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597938789777" />
+    <state width="1877" height="234" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597962190998" />
     <state width="1398" height="204" key="GridCell.Tab.0.center/0.23.1440.796@0.23.1440.796" timestamp="1597791558244" />
-    <state width="1877" height="234" key="GridCell.Tab.0.left" timestamp="1597938789777">
+    <state width="1877" height="234" key="GridCell.Tab.0.left" timestamp="1597962190997">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597938789777" />
+    <state width="1877" height="234" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597962190997" />
     <state width="1398" height="204" key="GridCell.Tab.0.left/0.23.1440.796@0.23.1440.796" timestamp="1597791558238" />
-    <state width="1877" height="234" key="GridCell.Tab.0.right" timestamp="1597938789777">
+    <state width="1877" height="234" key="GridCell.Tab.0.right" timestamp="1597962190998">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597938789777" />
+    <state width="1877" height="234" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597962190998" />
     <state width="1398" height="204" key="GridCell.Tab.0.right/0.23.1440.796@0.23.1440.796" timestamp="1597791558245" />
     <state x="184" y="86" key="MergeDialog" timestamp="1597829396835">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -276,10 +290,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597142120769" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597933265407">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597939080806">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597933265407" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597939080806" />
     <state x="854" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1597844131155">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

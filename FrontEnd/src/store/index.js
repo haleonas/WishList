@@ -48,6 +48,7 @@ export default new Vuex.Store({
       commit('SET_USER', user);
       commit('SET_IS_LOGGED_IN', true)
       await dispatch('retrieveUsers')
+      console.log('hello')
     },
     logout: ({ commit }) => {
       commit('RESET', '');
