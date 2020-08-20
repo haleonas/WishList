@@ -41,7 +41,7 @@ export default {
   methods: {
     addItem() {
       this.$parent.close()
-      this.$emit('items-added', {name: this.itemName, description: this.itemDescription, url: this.itemUrl})
+      this.$emit('items-added', {item_name: this.itemName, item_description: this.itemDescription, item_url: this.itemUrl})
       this.itemName = ''
       this.itemDescription = ''
       this.itemUrl = ''

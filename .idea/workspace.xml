@@ -11,7 +11,7 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:login_suggestion" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:createList" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
@@ -19,8 +19,14 @@
     <list default="true" id="10694382-1b0e-4739-8de1-42a15e2c2d90" name="Default Changelist" comment="init">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/components/navbar/components/Links.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/components/navbar/components/Links.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/components/navbar/components/Logout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/components/navbar/components/Logout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/components/AddItemForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/components/AddItemForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/components/ListItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/components/ListItem.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/components/NameSelector.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/components/NameSelector.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/views/CreateList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/views/CreateList.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,6 +139,7 @@
       <workItem from="1597221472822" duration="131000" />
       <workItem from="1597221613853" duration="15211000" />
       <workItem from="1597392971716" duration="6359000" />
+      <workItem from="1597915370496" duration="8502000" />
     </task>
     <task id="LOCAL−00001" summary="init">
       <created>1597138450259</created>
@@ -214,10 +221,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="breaking up the navbar into components,&#10;made directories for components belonging to the navbar" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="175" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597393643961">
+    <state x="414" y="175" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597845717997">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597393643961" />
+    <state x="414" y="175" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597845717997" />
     <state x="710" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597393194155">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -226,26 +233,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597393235627" />
-    <state width="1398" height="204" key="GridCell.Tab.0.bottom" timestamp="1597791558245">
-      <screen x="0" y="23" width="1440" height="796" />
+    <state width="1877" height="261" key="GridCell.Tab.0.bottom" timestamp="1597923782016">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597397435407" />
+    <state width="1877" height="261" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597923782016" />
     <state width="1398" height="204" key="GridCell.Tab.0.bottom/0.23.1440.796@0.23.1440.796" timestamp="1597791558245" />
-    <state width="1398" height="204" key="GridCell.Tab.0.center" timestamp="1597791558244">
-      <screen x="0" y="23" width="1440" height="796" />
+    <state width="1877" height="261" key="GridCell.Tab.0.center" timestamp="1597923782016">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597397435406" />
+    <state width="1877" height="261" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597923782016" />
     <state width="1398" height="204" key="GridCell.Tab.0.center/0.23.1440.796@0.23.1440.796" timestamp="1597791558244" />
-    <state width="1398" height="204" key="GridCell.Tab.0.left" timestamp="1597791558240">
-      <screen x="0" y="23" width="1440" height="796" />
+    <state width="1877" height="261" key="GridCell.Tab.0.left" timestamp="1597923782015">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597397435406" />
+    <state width="1877" height="261" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597923782015" />
     <state width="1398" height="204" key="GridCell.Tab.0.left/0.23.1440.796@0.23.1440.796" timestamp="1597791558238" />
-    <state width="1398" height="204" key="GridCell.Tab.0.right" timestamp="1597791558245">
-      <screen x="0" y="23" width="1440" height="796" />
+    <state width="1877" height="261" key="GridCell.Tab.0.right" timestamp="1597923782016">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597397435407" />
+    <state width="1877" height="261" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597923782016" />
     <state width="1398" height="204" key="GridCell.Tab.0.right/0.23.1440.796@0.23.1440.796" timestamp="1597791558245" />
+    <state x="184" y="86" key="MergeDialog" timestamp="1597829396835">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="184" y="86" key="MergeDialog/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597829396835" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1597142120769">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -254,6 +265,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597142189894" />
+    <state x="854" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1597844131155">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="854" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597844131155" />
+    <state x="540" y="175" key="com.intellij.database.dbimport.ImportDialog" timestamp="1597844237194">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="540" y="175" key="com.intellij.database.dbimport.ImportDialog/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597844237194" />
+    <state x="816" y="153" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1597845731891">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="816" y="153" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597845731891" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597847594632">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597847594632" />
     <state x="488" y="141" key="git4idea.branch.GitSmartOperationDialog" timestamp="1597824726220">
       <screen x="0" y="23" width="1440" height="796" />
     </state>
@@ -262,5 +289,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="677" y="328" key="jetbrains.nodejs.interpreters-dialog/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597237769563" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597920722591">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597920722591" />
   </component>
 </project>

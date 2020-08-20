@@ -3,7 +3,8 @@ const sqlite = require('sqlite')
 const sqlite3 = require('sqlite3')
 const cors = require('cors')
 const {v4: uuidv4} = require('uuid')
-const {PRIVATE_VAPID_KEY, PUBLIC_VAPID_KEY} = require('./keys')
+//const {PRIVATE_VAPID_KEY, PUBLIC_VAPID_KEY} = require('./extra/keys')
+const cookieParser = require('cookie-parser')
 
 
 const app = express()
@@ -11,7 +12,8 @@ const app = express()
 app.use(
     cors({credentials: true, origin: 'http://localhost:8080'}),
     express.json(),
-    express.static('assets'))
+    express.static('assets'),
+    cookieParser())
 
 let database_
 
@@ -29,7 +31,7 @@ app.post('/register', (req, res) => {
         })
         .catch((e) => {
             console.log('something went wrong ', e)
-            res.status(401).send({message: 'Failed to register, ', e})
+            res.status(500).send({message: 'Failed to register, ', e})
         })
 })
 
@@ -60,7 +62,7 @@ async function authenticate(req, res, next) {
             }
         } catch (e) {
             console.log('Something went wrong when retrieving the userid from sessionStorage, ', e)
-            res.status(401).send()
+            res.status(500).send()
         }
     } else {
         console.log('invalid user token')
@@ -68,15 +70,92 @@ async function authenticate(req, res, next) {
     }
 }
 
-app.post('/logout', async (req, res) => {
+app.post('/logout', authenticate, async (req, res) => {
     await database_.all('DELETE FROM sessionStorage WHERE userid = ?', [req.userid])
     res.set('Set-Cookie', 'token=; Expires=Thu, 01 Jan 1970 00:00:00 GMT; Path=/')
     res.status(200).send('Logged out')
 })
 
-app.get('/user', authenticate, (req, res) => {
+app.get('/user', authenticate, async (req, res) => {
     //send the logged in users friendlist
-    res.send(`hej ${req.userid}`)
+    //select *from user_view except select *from user_view where userid = 2
+    try {
+        const rows = await database_.all('select *from user_view except select *from user_view where userid = ?', [req.userid])
+        console.log(rows)
+        res.send(rows)
+    } catch (e) {
+        res.status(500).send({message: 'Something went wrong when retrieving users', e})
+        console.log('Something went wrong when retrieving users', e)
+    }
+})
+
+//add a list
+app.post('/createlist', authenticate, async (req, res) => {
+    try {
+        //lägg till databasen listname, listurl
+        //row = ex { stmt: Statement { stmt: undefined }, lastID: 1, changes: 1 }
+        const row = await database_.run(
+            'INSERT INTO lists(list_name,list_creator_id,list_url) VALUES(?,?,?)',
+            [req.body.listName, req.userid, req.body.listUrl])
+
+        for (let i = 0; i < req.body.items.length; i++) {
+            await database_.run(
+                'INSERT INTO list_items(list_id,item_name,item_description,item_url) VAlUES(?,?,?,?)',
+                [row.lastID, req.body.items[i].item_name, req.body.items[i].item_description, req.body.items[i].item_url])
+        }
+        for (let i = 0; i < req.body.friends.length; i++) {
+            await database_.run(
+                'INSERT INTO list_users(userid,list_id) VALUES(?,?)',
+                [req.body.friends[i].userid, row.lastID]
+            )
+        }
+    } catch (e) {
+        console.log('Something went wrong when inserting the data to the database', e)
+        res.status(500).send()
+    }
+    console.log('create list: Post')
+    res.status(200).send()
+})
+
+//update a list in the name of the user
+app.patch('/createlist', authenticate, ((req, res) => {
+    console.log('[CreateList.patch]: updating data for list')
+
+
+    res.status(200).send()
+}))
+
+app.get('/editlist', authenticate, async (req, res) => {
+    console.log(req.query)
+    try {
+        const lists = await database_.all('SELECT *FROM lists WHERE list_url = ?', [req.query.listUrl])
+        //check if there is a list with that url
+        if (lists.length === 0 || lists.length > 1) {
+            res.status(404).send({message: 'Could not find any lists with that url'})
+            //check if owner of the list
+        } else if (lists[0].list_creator_id !== req.userid) {
+            res.status(401).send({message: 'Unauthorized access to list'})
+        } else if (lists.length === 1) {
+            try {
+                console.log('[Editlist]:Retrieving list information')
+                const listItems = await database_.all('SELECT item_name, item_description, item_url FROM list_items where list_id = ? ', [lists[0].list_id])
+                const listUsers = await database_.all('select *from list_users_view where list_id = ?', [lists[0].list_id])
+                let obj = {
+                    listName: lists[0].list_name,
+                    items: listItems,
+                    users: listUsers
+                }
+                console.log('[Editlist]: Sending list information')
+                res.status(200).send(obj)
+            } catch (e) {
+                console.log('[Editlist]: Something went wrong while retrieving listItems or listUsers ', e)
+                res.status(400).send({message: 'Something went wrong while retrieving listItems or listUsers ', e})
+            }
+        }
+    } catch (e) {
+        console.log('[Editlist]: Something went wrong while retrieving list data ', e)
+        res.status(500).send({message: 'Something went wrong while retrieving list data ', e})
+    }
 })
 
 app.listen(3000)

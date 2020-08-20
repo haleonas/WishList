@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
+import axios from "axios";
 
 Vue.use(Vuex)
 
@@ -16,6 +17,9 @@ const mutations = {
   },
   RESET: state => {
     Object.assign(state, getDefaultState());
+  },
+  SET_USERS: (state,users) => {
+    state.users = users
   }
 }
 
@@ -30,18 +34,25 @@ export default new Vuex.Store({
   state: {
     token: '',
     user: {},
-    isLoggedIn: false
+    isLoggedIn: false,
+    users: []
   },
   mutations,
   actions: {
-    login: ({ commit }, { token, user }) => {
+    retrieveUsers: async ({commit}) => {
+      const response = await axios.get('http://localhost:3000/user',{withCredentials:true})
+      commit('SET_USERS', response.data)
+    },
+    login: async ({ commit,dispatch }, { token, user }) => {
       commit('SET_TOKEN', token);
       commit('SET_USER', user);
       commit('SET_IS_LOGGED_IN', true)
+      await dispatch('retrieveUsers')
     },
     logout: ({ commit }) => {
       commit('RESET', '');
       commit('SET_IS_LOGGED_IN', false)
+      commit('SET_USERS',[])
     }
   },
   getters: {
@@ -50,6 +61,9 @@ export default new Vuex.Store({
     },
     getUser: state => {
       return state.user;
+    },
+    getUsers: state => {
+      return state.users
     }
   },
   plugins: [createPersistedState()],

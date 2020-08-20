@@ -1,14 +1,35 @@
 <template>
   <div>
-    <div v-for="(item,index) in listItems" :key="index">
-      <app-list-item :item="item" :remove="remove"/>
-    </div>
-    <button class="button is-primary is-medium"
-            @click="itemForm">
-      Add item to wishlist
-    </button>
-    <button class="button is-medium" @click="createList">Create List</button>
+    <section v-if="$store.getters.isLoggedIn">
+      <b-field label="Name of list" style="width: 300px">
+        <b-input v-model="listName" type="text" placeholder="Name of the wishlist"></b-input>
+      </b-field>
+      <div v-for="(item,index) in listItems" :key="index">
+        <app-list-item :item="item" :remove="remove"/>
+      </div>
+      <section>
+        <button class="button is-primary is-medium"
+                @click="itemForm">
+          Add item to wishlist
+        </button>
+      </section>
+      <section>
+        <button class="button is-medium" @click="createList">Save List</button>
+      </section>
+      <section>
+        <hr>
+        <section v-for="(friend,index) in listFriends" :key="index">{{ friend.optionName }}</section>
+        Add Friends
+        <app-name-selector :options="friends"
+                           :pre-selected="listFriends"
+                           @name-selected="updateSelected"/>
+      </section>
+    </section>
+    <section v-else>
+      You are not logged in and can't create a list
+    </section>
   </div>
+
 </template>
 
 <script>
@@ -16,15 +37,26 @@ import axios from 'axios'
 import AddItemForm from "@/components/AddItemForm";
 import ListItem from "@/components/ListItem";
 import uniqid from 'uniqid'
+import NameSelector from "@/components/NameSelector";
 
 export default {
   name: "List",
   components: {
-    appListItem: ListItem
+    appListItem: ListItem,
+    appNameSelector: NameSelector
   },
   data() {
     return {
-      listItems: []
+      listItems: [],
+      listName: '',
+      listFriends: []
+    }
+  },
+  computed: {
+    friends: {
+      get() {
+        return this.$store.getters.getUsers
+      },
     }
   },
   beforeMount() {
@@ -32,26 +64,47 @@ export default {
   },
   methods: {
     async createList() {
-      if (!this.$route.params.list) {
-        console.log('I have no id, create one')
-        //send as a list to be added to database
-        console.log(uniqid())
-        return
-      }
 
-      //else send as a list to be updated in the database
-      console.log('ketchup')
+      let listUrl = this.$route.params.list ? this.$route.params.list : uniqid()
+
+      if (this.listName) {
+        const listData = {
+          listName: this.listName,
+          listUrl,
+          items: this.listItems,
+          friends: this.listFriends
+        }
+        const response = this.$route.params.list ? await axios.patch('http://localhost:3000/createlist', listData, {withCredentials: true}) : await axios.post('http://localhost:3000/createlist', listData, {withCredentials: true})
+
+        console.log(response.data)
+      } else {
+        this.notification('Missing a title for the list')
+      }
     },
     async checkList() {
       if (this.$route.params.list) {
-        await axios.get('')
+        const response = await axios.get('http://localhost:3000/editlist', {
+          withCredentials: true,
+          params: {listUrl: this.$route.params.list}
+        })
 
-        //check if owner of the list in the backend
-        //if not print not creator, clear storage and return
-        //if owner show list and items
+        this.listName = response.data.listName
+        this.listItems = response.data.items
+        this.listFriends = response.data.users
 
+        this.listFriends.map(user => {
+          user.optionName = `${user.firstname} ${user.lastname} (${user.phone})`
+        })
         console.log('this route had a parameter')
       }
+    },
+    notification(message) {
+      this.$buefy.notification.open({
+        message: message,
+        duration: 3000,
+        type: "is-info",
+        position: "is-top"
+      })
     },
     itemForm() {
       this.$buefy.modal.open({
@@ -70,6 +123,9 @@ export default {
     remove(value) {
       const index = this.listItems.findIndex(item => item === value)
       this.listItems.splice(index, 1)
+    },
+    updateSelected(friends) {
+      this.listFriends = friends
     }
   }
 }
