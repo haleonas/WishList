@@ -74,3 +74,8 @@ export default {
   }
 };
 </script>
+<style scoped>
+.myWishinglists {
+  color: green;
+}
+</style>

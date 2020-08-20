@@ -4,6 +4,7 @@
       <navbar></navbar>
     </div>
     <router-view />
+    <my-Wishinglist></my-Wishinglist>
   </div>
 </template>
 
