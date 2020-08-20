@@ -118,15 +118,49 @@ app.post('/createlist', authenticate, async (req, res) => {
 })
 
 //update a list in the name of the user
-app.patch('/createlist', authenticate, ((req, res) => {
+app.patch('/createlist', authenticate, async (req, res) => {
     console.log('[CreateList.patch]: updating data for list')
+    try {
+        //retrieving list_id
+        console.log('[CreateList.patch]: Retrieving list_id')
+        const row = await database_.all('SELECT list_id FROM lists WHERE list_url = ?', [req.body.listUrl])
 
+        //update list name
+        console.log('[CreateList.patch]: Updating listname')
+        await database_.run('UPDATE lists SET list_name = ? WHERE list_id = ?', [req.body.listName, row[0].list_id])
 
-    res.status(200).send()
-}))
+        //removing old items in case they were removed in frontend
+        console.log('[CreateList.patch]: Deleting old items from list')
+        await database_.run('DELETE FROM list_items WHERE list_id = ?', [row[0].list_id])
+
+        //removing old friends in case they removed in front end
+        console.log('[CreateList.patch]: Deleting old friends from list')
+        await database_.run('DELETE FROM list_users WHERE list_id = ?', [row[0].list_id])
+
+        //reinserting items
+        console.log('[CreateList.patch]: reinserting all friends to the list')
+        for (let i = 0; i < req.body.items.length; i++) {
+            await database_.run(
+                'INSERT INTO list_items(list_id,item_name,item_description,item_url) VAlUES(?,?,?,?)',
+                [row[0].list_id, req.body.items[i].item_name, req.body.items[i].item_description, req.body.items[i].item_url])
+        }
+
+        //reinserting friends
+        for (let i = 0; i < req.body.friends.length; i++) {
+            await database_.run(
+                'INSERT INTO list_users(userid,list_id) VALUES(?,?)',
+                [req.body.friends[i].userid,row[0].list_id]
+            )
+        }
+
+        res.status(200).send()
+    } catch (e) {
+        console.log('[CreateList.patch]: Something went wrong when updating list')
+        res.status(500).send()
+    }
+})
 
 app.get('/editlist', authenticate, async (req, res) => {
-    console.log(req.query)
     try {
         const lists = await database_.all('SELECT *FROM lists WHERE list_url = ?', [req.query.listUrl])
         //check if there is a list with that url
@@ -149,7 +183,7 @@ app.get('/editlist', authenticate, async (req, res) => {
                 res.status(200).send(obj)
             } catch (e) {
                 console.log('[Editlist]: Something went wrong while retrieving listItems or listUsers ', e)
-                res.status(400).send({message: 'Something went wrong while retrieving listItems or listUsers ', e})
+                res.status(500).send({message: 'Something went wrong while retrieving listItems or listUsers ', e})
             }
         }
     } catch (e) {

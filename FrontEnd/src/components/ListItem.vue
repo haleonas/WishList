@@ -22,14 +22,14 @@ export default {
       this.$buefy.modal.open({
         parent: this,
         component: AddItemForm,
-        props: {name: this.item.name, description: this.item.description,url:this.item.url},
+        props: {name: this.item.item_name, description: this.item.item_description,url:this.item.item_url},
         hasModalCard: true,
         trapFocus: true,
         events: {
           'items-added': value => {
-            this.item.name = value.name
-            this.item.description = value.description
-            this.item.url = value.url
+            this.item.item_name = value.item_name
+            this.item.item_description = value.item_description
+            this.item.item_url = value.item_url
           }
         }
       })

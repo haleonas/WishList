@@ -21,7 +21,7 @@
         <section v-for="(friend,index) in listFriends" :key="index">{{ friend.optionName }}</section>
         Add Friends
         <app-name-selector :options="friends"
-                           :pre-selected="listFriends"
+                           :pre-selected="tempList"
                            @name-selected="updateSelected"/>
       </section>
     </section>
@@ -49,7 +49,8 @@ export default {
     return {
       listItems: [],
       listName: '',
-      listFriends: []
+      listFriends: [],
+      tempList: []
     }
   },
   computed: {
@@ -77,6 +78,12 @@ export default {
         const response = this.$route.params.list ? await axios.patch('http://localhost:3000/createlist', listData, {withCredentials: true}) : await axios.post('http://localhost:3000/createlist', listData, {withCredentials: true})
 
         console.log(response.data)
+        if(response.status === 200){
+          this.notification('List saved')
+          await this.$router.push(`/createlist/${listUrl}`);
+        } else {
+          this.notification('Something went wrong')
+        }
       } else {
         this.notification('Missing a title for the list')
       }
@@ -90,11 +97,12 @@ export default {
 
         this.listName = response.data.listName
         this.listItems = response.data.items
-        this.listFriends = response.data.users
 
-        this.listFriends.map(user => {
+        this.tempList = response.data.users
+            this.tempList.map(user => {
           user.optionName = `${user.firstname} ${user.lastname} (${user.phone})`
         })
+        this.listFriends = this.tempList
         console.log('this route had a parameter')
       }
     },
