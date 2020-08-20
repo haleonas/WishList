@@ -26,7 +26,7 @@
       </section>
     </section>
     <section v-else>
-      You are not logged in and can't create a list
+      You are not logged in and can't create a list nor edit a list
     </section>
   </div>
 
@@ -90,20 +90,26 @@ export default {
     },
     async checkList() {
       if (this.$route.params.list) {
-        const response = await axios.get('http://localhost:3000/editlist', {
-          withCredentials: true,
-          params: {listUrl: this.$route.params.list}
-        })
+        try{
+          const response = await axios.get('http://localhost:3000/editlist', {
+            withCredentials: true,
+            params: {listUrl: this.$route.params.list}
+          })
 
-        this.listName = response.data.listName
-        this.listItems = response.data.items
+          this.listName = response.data.listName
+          this.listItems = response.data.items
 
-        this.tempList = response.data.users
-            this.tempList.map(user => {
-          user.optionName = `${user.firstname} ${user.lastname} (${user.phone})`
-        })
-        this.listFriends = this.tempList
-        console.log('this route had a parameter')
+          this.tempList = response.data.users
+          this.tempList.map(user => {
+            user.optionName = `${user.firstname} ${user.lastname} (${user.phone})`
+          })
+          this.listFriends = this.tempList
+          console.log('this route had a parameter')
+        } catch (e) {
+
+          this.notification(`${e}`)
+        }
+
       }
     },
     notification(message) {
