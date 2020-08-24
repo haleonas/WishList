@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import myWishinglists from '../components/navbar/components/myWishinglists.vue'
+import myWishinglists from '@/views/myWishinglists'
+import myAssignedLists from '@/views/myAssignedLists'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,11 @@ const routes = [
     path: '/my-wishinglist',
     name: 'myWishinglists',
     component: myWishinglists
+  },
+  {
+    path: '/myAssignedLists',
+    name: 'myAssignedLists',
+    component: myAssignedLists
   }
 ]
 

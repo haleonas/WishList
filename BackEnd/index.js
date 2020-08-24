@@ -3,13 +3,14 @@ const sqlite = require('sqlite')
 const sqlite3 = require('sqlite3')
 const cors = require('cors')
 const {v4: uuidv4} = require('uuid')
+const cookieParser = require('cookie-parser')
 
 const app = express()
 
 app.use(
     cors({credentials: true, origin: 'http://localhost:8080'}),
     express.json(),
-    express.static('assets'))
+    express.static('assets'),cookieParser())
 
 let database_
 
@@ -51,9 +52,11 @@ async function authenticate(req, res, next) {
 
     if (token) {
         try {
+            console.log('checking if current user is logged in')
             const rows = await database_.all('SELECT userid FROM sessionStorage WHERE token = ?', [token])
             req.userid = rows[0].userid
             if (rows.length === 1) {
+                console.log('logged in')
                 next()
             }
         } catch (e) {
@@ -77,4 +80,24 @@ app.get('/user', authenticate, (req, res) => {
     res.send(`hej ${req.userid}`)
 })
 
+app.get('/lists', authenticate ,async (req, res) => {
+    try {
+        const rows = await database_.all('SELECT * FROM lists WHERE list_creator_id = ?', [req.userid])
+        res.status(200).send(rows)
+    } catch (e) {
+        console.log('could not retrieve list')
+        res.status(500).send({ message: 'Something went wrong while retrieving list data ', e })
+    }
+})
+
+app.get('/assignedlists', authenticate, async (req, res) => {
+    try {
+        console.log('Getting friend lists')
+        const rows = await database_.all('select list_url,list_name, users.firstname ||\' \'|| users.lastname as name from lists inner join list_users on lists.list_id = list_users.list_id inner join users on users.userid = lists.list_creator_id where list_users.userid = ?', [req.userid])
+        res.status(200).send(rows)
+    } catch (e) {
+        console.log('Something went wrong while retrieving list data ')
+        res.status(500).send({ message: 'Something went wrong while retrieving list data ', e })
+    }
+})
 app.listen(3000)

@@ -4,17 +4,14 @@
       <navbar></navbar>
     </div>
     <router-view />
-    <my-Wishinglist></my-Wishinglist>
   </div>
 </template>
 
 <script>
 import Navbar from "./components/navbar/Navbar";
-import myWishinglist from "./components/navbar/components/myWishinglists";
 export default {
   components: {
-    Navbar,
-    myWishinglist
+    Navbar
   }
 };
 </script>
