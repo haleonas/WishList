@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import CreateList from '@/views/CreateList'
+import myWishinglists from '@/views/myWishinglists'
+import myAssignedLists from '@/views/myAssignedLists'
 
 Vue.use(VueRouter)
 
@@ -20,15 +22,25 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
     },
     {
-        path:'/createlist',
+        path: '/createlist',
         name: 'EmptyList',
         component: CreateList
     },
     {
-        path:'/createlist/:list',
+        path: '/createlist/:list',
         name: 'ContinueList',
         component: CreateList
     },
+    {
+        path: '/my-wishinglist',
+        name: 'myWishinglists',
+        component: myWishinglists
+    },
+    {
+        path: '/myAssignedLists',
+        name: 'myAssignedLists',
+        component: myAssignedLists
+    }
 ]
 
 const router = new VueRouter({
