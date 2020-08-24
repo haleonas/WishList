@@ -9,7 +9,7 @@ if (workbox) {
         new workbox.strategies.CacheFirst()
     )
     workbox.routing.registerRoute(
-        "https://avancera.app/cities/",
+        "http://localhost:3000/user/",
         new workbox.strategies.StaleWhileRevalidate, 'GET'
     )
     //hemside url, offline strategi, requesttyp
