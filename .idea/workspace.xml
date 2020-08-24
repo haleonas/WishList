@@ -17,7 +17,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10694382-1b0e-4739-8de1-42a15e2c2d90" name="Default Changelist" comment="fixed so that all items is by default false when it comes to if someone has bought the present or not.&#10;&#10;fixed so that even if the item is removed from the database it still will remember which items completed state were.">
-      <change beforePath="$PROJECT_DIR$/FrontEnd/sw.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/sw.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/views/myWishinglists.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/views/myWishinglists.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +74,7 @@
       <recent name="$PROJECT_DIR$/FrontEnd/src/components/Navbar_components" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.Run backend">
+  <component name="RunManager" selected="npm.Run frontend">
     <configuration name="Run backend" type="js.build_tools.npm" singleton="false">
       <package-json value="$PROJECT_DIR$/BackEnd/package.json" />
       <command value="run" />
@@ -257,30 +259,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597393235627" />
-    <state width="1293" height="282" key="GridCell.Tab.0.bottom" timestamp="1598275110971">
+    <state width="1877" height="312" key="GridCell.Tab.0.bottom" timestamp="1598276085243">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1293" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598275110971" />
+    <state width="1877" height="312" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598276085243" />
     <state width="1398" height="204" key="GridCell.Tab.0.bottom/0.23.1440.796@0.23.1440.796" timestamp="1597791558245" />
-    <state width="1293" height="282" key="GridCell.Tab.0.center" timestamp="1598275110971">
+    <state width="1877" height="312" key="GridCell.Tab.0.center" timestamp="1598276085243">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1293" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598275110971" />
+    <state width="1877" height="312" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598276085243" />
     <state width="1398" height="204" key="GridCell.Tab.0.center/0.23.1440.796@0.23.1440.796" timestamp="1597791558244" />
-    <state width="1293" height="282" key="GridCell.Tab.0.left" timestamp="1598275110971">
+    <state width="1877" height="312" key="GridCell.Tab.0.left" timestamp="1598276085243">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1293" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598275110971" />
+    <state width="1877" height="312" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598276085243" />
     <state width="1398" height="204" key="GridCell.Tab.0.left/0.23.1440.796@0.23.1440.796" timestamp="1597791558238" />
-    <state width="1293" height="282" key="GridCell.Tab.0.right" timestamp="1598275110971">
+    <state width="1877" height="312" key="GridCell.Tab.0.right" timestamp="1598276085243">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1293" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598275110971" />
+    <state width="1877" height="312" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598276085243" />
     <state width="1398" height="204" key="GridCell.Tab.0.right/0.23.1440.796@0.23.1440.796" timestamp="1597791558245" />
-    <state x="184" y="86" key="MergeDialog" timestamp="1597829396835">
+    <state x="184" y="86" key="MergeDialog" timestamp="1598275397289">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="184" y="86" key="MergeDialog/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597829396835" />
+    <state x="184" y="86" key="MergeDialog/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598275397289" />
+    <state x="598" y="281" width="831" height="477" key="MultipleFileMergeDialog" timestamp="1598275397294">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="598" y="281" width="831" height="477" key="MultipleFileMergeDialog/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598275397294" />
     <state x="727" y="222" key="RollbackChangesDialog" timestamp="1598122979021">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

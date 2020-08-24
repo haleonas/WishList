@@ -1,33 +1,35 @@
 <template>
   <div class="myWishinglists">
-    <b-table :data="data" :columns="columns" @click="selectedItem" :selected.sync="selected"></b-table>
-    <!--<section v-for = "item in data" :key = "item.list_id">
-      {{item.list_name}}
-    </section>-->
+    <b-table :data="data" :columns="columns" @click="selectedItem" :selected.sync="selected"
+             v-if="data.length > 0"></b-table>
+    <div v-else>You have not created a list yet</div>
+    <button class="button is-medium" @click="createList">Create List</button>
   </div>
 </template>
 <script>
 import axios from 'axios'
+
 export default {
   name: "myWishinglists",
-  methods:{
-    async getLists(){
+  methods: {
+    async getLists() {
       try {
-        const response = await axios.get('http://localhost:3000/lists',{withCredentials:true})
+        const response = await axios.get('http://localhost:3000/lists', {withCredentials: true})
         this.data = response.data
       } catch (error) {
         console.log(error)
-        
       }
-      
     },
-    selectedItem(event){
+    createList() {
+      this.$router.push('/createlist')
+    },
+    selectedItem(event) {
       //this.style.backgroundcolor = 'green'
       console.log(event.list_url)
       this.$router.push(`/createlist/${event.list_url}`)
     }
   },
-  beforeMount(){
+  beforeMount() {
     this.getLists()
   },
   data() {
@@ -45,7 +47,7 @@ export default {
           field: "list_name",
           label: "List name"
         },
-        
+
       ]
     };
   }

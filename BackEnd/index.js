@@ -230,6 +230,5 @@ app.get('/assignedlists', authenticate, async (req, res) => {
         res.status(500).send({ message: 'Something went wrong while retrieving list data ', e })
     }
 })
-app.listen(3000)
 
 server.listen(3000)
