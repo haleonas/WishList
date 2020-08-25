@@ -22,8 +22,13 @@ io.on('connection', client => {
     })
 })
 
+//http://localhost:8080
+//http://10.0.2.2:5500
+//http://localhost:5500
+//http://192.168.10.125:5500
+
 app.use(
-    cors({credentials: true, origin: 'http://localhost:8080'}),
+    cors({credentials: true, origin: 'http://localhost:5500'}),
     express.json(),
     express.static('assets'),
     cookieParser())
@@ -53,6 +58,7 @@ app.post('/register', (req, res) => {
 
 app.post('/login', async (req, res) => {
     const rows = await database_.all('SELECT * FROM users WHERE username = ? AND password = ?', [req.body.username, req.body.password])
+    console.log('error')
     if (rows.length === 1) {
         console.log('logged in')
         const userid = rows[0].userid

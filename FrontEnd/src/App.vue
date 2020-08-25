@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <navbar></navbar>
+      <navbar/>
     </div>
     <router-view/>
   </div>
@@ -20,6 +20,10 @@ export default {
     this.displayNotification()
   },
   mounted() {
+    Notification.requestPermission(status => {
+      console.log(status)
+    })
+
     //connecting to server socket
     const client = io.connect('http://localhost:3000')
 

@@ -1,9 +1,14 @@
 <template>
   <div class="myWishinglists">
-    <b-table :data="data" :columns="columns" @click="selectedItem" :selected.sync="selected"
-             v-if="data.length > 0"></b-table>
-    <div v-else>You have not created a list yet</div>
-    <button class="button is-medium" @click="createList">Create List</button>
+    <div v-if="$store.getters.isLoggedIn">
+      <b-table :data="data" :columns="columns" @click="selectedItem" :selected.sync="selected"
+               v-if="data.length > 0"></b-table>
+      <div v-else>You have not created a list yet</div>
+      <button class="button is-medium" @click="createList">Create List</button>
+    </div>
+    <div v-else>
+      You are not currently logged in
+    </div>
   </div>
 </template>
 <script>

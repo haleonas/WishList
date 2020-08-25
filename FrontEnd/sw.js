@@ -12,6 +12,15 @@ if (workbox) {
         "http://localhost:3000/user/",
         new workbox.strategies.StaleWhileRevalidate, 'GET'
     )
+    workbox.routing.registerRoute(
+        "http://localhost:3000/lists",
+        new workbox.strategies.StaleWhileRevalidate, 'GET'
+    )
+
+    workbox.routing.registerRoute(
+        "http://localhost:3000/assignedlists",
+        new workbox.strategies.StaleWhileRevalidate, 'GET'
+    )
     //hemside url, offline strategi, requesttyp
 }
 
