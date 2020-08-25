@@ -8,6 +8,11 @@ import 'buefy/dist/buefy.css'
 import {urlBase64ToUint8Array} from './extra/functions'
 import {PUBLIC_VAPID_KEY} from './extra/keys'
 import vSelect from 'vue-select'
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
+import './icons.js'
+
+Vue.use(Buefy)
 
 Vue.use(Buefy)
 
