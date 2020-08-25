@@ -4,6 +4,11 @@ import store from './store'
 import router from './router'
 import './registerServiceWorker'
 import vSelect from 'vue-select'
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
+import './icons.js'
+
+Vue.use(Buefy)
 
 Vue.config.productionTip = false
 
