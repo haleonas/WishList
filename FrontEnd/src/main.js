@@ -9,7 +9,9 @@ import {urlBase64ToUint8Array} from './extra/functions'
 import {PUBLIC_VAPID_KEY} from './extra/keys'
 import vSelect from 'vue-select'
 
+
 Vue.use(Buefy)
+
 
 Vue.config.productionTip = false
 

@@ -28,7 +28,7 @@ io.on('connection', client => {
 //http://192.168.10.125:5500
 
 app.use(
-    cors({credentials: true, origin: 'http://localhost:5500'}),
+    cors({credentials: true, origin: 'http://localhost:8080'}),
     express.json(),
     express.static('assets'),
     cookieParser())
@@ -238,3 +238,18 @@ app.get('/assignedlists', authenticate, async (req, res) => {
 })
 
 server.listen(3000)
+
+//-------------------MY CODE ---------------------------------
+
+app.get('/itemList', async (req, res) => {
+    try {
+        const rows = await database_.all('SELECT * FROM list_items' )
+        res.status(200).send(rows)
+    } catch (e) {
+        console.log('could not retrieve items')
+        res.status(500).send({ message: 'Something went wrong while retrieving items ', e })
+    }
+})
+
+
+

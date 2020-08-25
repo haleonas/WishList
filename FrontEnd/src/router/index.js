@@ -4,6 +4,9 @@ import Home from '../views/Home.vue'
 import CreateList from '@/views/CreateList'
 import myWishinglists from '@/views/myWishinglists'
 import myAssignedLists from '@/views/myAssignedLists'
+import DetailedV from '../views/DetailedV.vue'
+import Finalview from '../views/Finalview.vue'
+
 
 Vue.use(VueRouter)
 
@@ -40,6 +43,20 @@ const routes = [
         path: '/myAssignedLists',
         name: 'myAssignedLists',
         component: myAssignedLists
+    },
+
+    {
+        path: '/list/:url',
+        name:'list/:url',
+        component: DetailedV
+   
+    },
+
+    {
+        path: '/details/:name',
+        name:'details/:name',
+        component: Finalview
+   
     }
 ]
 
