@@ -3,16 +3,10 @@
 
     <app-links></app-links>
 
-    <div class="navbar-menu">
-      <div class="navbar-end">
-
-        <app-register></app-register>
-
-        <app-login></app-login>
-
-        <app-logout></app-logout>
-
-      </div>
+    <div class="navbar-end">
+      <app-register></app-register>
+      <app-login></app-login>
+      <app-logout></app-logout>
     </div>
   </nav>
 </template>

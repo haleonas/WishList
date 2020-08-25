@@ -11,21 +11,19 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:login" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:createList" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10694382-1b0e-4739-8de1-42a15e2c2d90" name="Default Changelist" comment="init">
-      <change afterPath="$PROJECT_DIR$/FrontEnd/src/components/navbar/Navbar.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/src/components/navbar/components/Links.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/src/components/navbar/components/Login.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/src/components/navbar/components/Logout.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/src/components/navbar/components/Register.vue" afterDir="false" />
+    <list default="true" id="10694382-1b0e-4739-8de1-42a15e2c2d90" name="Default Changelist" comment="added functionality to be able to create new lists. &#10;added a response which says that you have no lists">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/components/Navbar.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/components/navbar/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/components/navbar/Navbar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/views/myAssignedLists.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/views/myAssignedLists.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/views/myWishinglists.vue" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/views/myWishinglists.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/sw.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/sw.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +46,7 @@
     </option>
     <option name="RECENT_COMMON_BRANCH" value="BackEnd_Master" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -79,7 +78,7 @@
       <recent name="$PROJECT_DIR$/FrontEnd/src/components/Navbar_components" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.Run frontend">
+  <component name="RunManager" selected="npm.Run backend">
     <configuration name="Run backend" type="js.build_tools.npm" singleton="false">
       <package-json value="$PROJECT_DIR$/BackEnd/package.json" />
       <command value="run" />
@@ -138,6 +137,13 @@
       <workItem from="1597221472822" duration="131000" />
       <workItem from="1597221613853" duration="15211000" />
       <workItem from="1597392971716" duration="6359000" />
+      <workItem from="1597915370496" duration="16400000" />
+      <workItem from="1597937189129" duration="1799000" />
+      <workItem from="1597956544605" duration="6150000" />
+      <workItem from="1598259050507" duration="1966000" />
+      <workItem from="1598261058525" duration="11071000" />
+      <workItem from="1598280552452" duration="4797000" />
+      <workItem from="1598342064404" duration="2511000" />
     </task>
     <task id="LOCAL−00001" summary="init">
       <created>1597138450259</created>
@@ -163,11 +169,57 @@
       <option name="presentableId" value="LOCAL−00004" />
       <updated>1597142142460</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL−00005" summary="breaking up the navbar into components,&#10;made directories for components belonging to the navbar">
+      <created>1597792242509</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1597792242509</updated>
+    </task>
+    <task id="LOCAL−00006" summary="will now only show the create list options if you are logged in.&#10;retrieving all the users on the platform when a user logs in and removes it when login out.&#10;added functions to send all the users on the platform (not with passwords). &#10;added funtionality to add a list to the database. &#10;addded functionality to add the lists items when adding a list.&#10;added functionality to add participants to the list which being added to the database. &#10;&#10;added functionality to send a list to a user for editing. only sends a object back if it the creator requesting the list. &#10;&#10;added functionality to show a previous list for editing.">
+      <created>1597924439233</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1597924439234</updated>
+    </task>
+    <task id="LOCAL−00007" summary="saving the edited list to the database.&#10;fixed small problems in the ListItem.vue where tried to send to data it didn't have. &#10;added functionality so the server now will remove the edited list items to be sure that if an item is removed it will stay removed. &#10;adds all previous items after delete in case they were sent to the backend.&#10;did the same when it came friends">
+      <created>1597931284743</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1597931284743</updated>
+    </task>
+    <task id="LOCAL−00008" summary="fixed error handling when retrieving a list.&#10;gives a notification when there is something wrong when retrieving a list. &#10;updated message when user is not logged in case they are not logged in to the website">
+      <created>1597933208637</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1597933208637</updated>
+    </task>
+    <task id="LOCAL−00009" summary="fixed so that all items is by default false when it comes to if someone has bought the present or not.&#10;&#10;fixed so that even if the item is removed from the database it still will remember which items completed state were.">
+      <created>1597939032527</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1597939032527</updated>
+    </task>
+    <task id="LOCAL−00010" summary="added functionality to be able to create new lists. &#10;added a response which says that you have no lists">
+      <created>1598276353129</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1598276353129</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -180,7 +232,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="login" />
+                        <option value="createList" />
                       </list>
                     </value>
                   </entry>
@@ -199,13 +251,20 @@
       <path value="$PROJECT_DIR$/FrontEnd" />
     </ignored-roots>
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="breaking up the navbar into components,&#10;made directories for components belonging to the navbar" />
+    <MESSAGE value="will now only show the create list options if you are logged in.&#10;retrieving all the users on the platform when a user logs in and removes it when login out.&#10;added functions to send all the users on the platform (not with passwords). &#10;added funtionality to add a list to the database. &#10;addded functionality to add the lists items when adding a list.&#10;added functionality to add participants to the list which being added to the database. &#10;&#10;added functionality to send a list to a user for editing. only sends a object back if it the creator requesting the list. &#10;&#10;added functionality to show a previous list for editing." />
+    <MESSAGE value="saving the edited list to the database.&#10;fixed small problems in the ListItem.vue where tried to send to data it didn't have. &#10;added functionality so the server now will remove the edited list items to be sure that if an item is removed it will stay removed. &#10;adds all previous items after delete in case they were sent to the backend.&#10;did the same when it came friends" />
+    <MESSAGE value="fixed error handling when retrieving a list.&#10;gives a notification when there is something wrong when retrieving a list. &#10;updated message when user is not logged in case they are not logged in to the website" />
+    <MESSAGE value="fixed so that all items is by default false when it comes to if someone has bought the present or not.&#10;&#10;fixed so that even if the item is removed from the database it still will remember which items completed state were." />
+    <MESSAGE value="added functionality to be able to create new lists. &#10;added a reponse which says that you have no lists" />
+    <MESSAGE value="added functionality to be able to create new lists. &#10;added a response which says that you have no lists" />
+    <option name="LAST_COMMIT_MESSAGE" value="added functionality to be able to create new lists. &#10;added a response which says that you have no lists" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="175" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597393643961">
+    <state x="414" y="175" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597845717997">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597393643961" />
+    <state x="414" y="175" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597845717997" />
     <state x="710" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597393194155">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -214,37 +273,77 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597393235627" />
-    <state width="1398" height="204" key="GridCell.Tab.0.bottom" timestamp="1597791558245">
-      <screen x="0" y="23" width="1440" height="796" />
+    <state width="1877" height="312" key="GridCell.Tab.0.bottom" timestamp="1598286565252">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597397435407" />
+    <state width="1877" height="312" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598286565252" />
     <state width="1398" height="204" key="GridCell.Tab.0.bottom/0.23.1440.796@0.23.1440.796" timestamp="1597791558245" />
-    <state width="1398" height="204" key="GridCell.Tab.0.center" timestamp="1597791558244">
-      <screen x="0" y="23" width="1440" height="796" />
+    <state width="1877" height="312" key="GridCell.Tab.0.center" timestamp="1598286565252">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597397435406" />
+    <state width="1877" height="312" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598286565252" />
     <state width="1398" height="204" key="GridCell.Tab.0.center/0.23.1440.796@0.23.1440.796" timestamp="1597791558244" />
-    <state width="1398" height="204" key="GridCell.Tab.0.left" timestamp="1597791558240">
-      <screen x="0" y="23" width="1440" height="796" />
+    <state width="1877" height="312" key="GridCell.Tab.0.left" timestamp="1598286565252">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597397435406" />
+    <state width="1877" height="312" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598286565252" />
     <state width="1398" height="204" key="GridCell.Tab.0.left/0.23.1440.796@0.23.1440.796" timestamp="1597791558238" />
-    <state width="1398" height="204" key="GridCell.Tab.0.right" timestamp="1597791558245">
-      <screen x="0" y="23" width="1440" height="796" />
+    <state width="1877" height="312" key="GridCell.Tab.0.right" timestamp="1598286565252">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597397435407" />
+    <state width="1877" height="312" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598286565252" />
     <state width="1398" height="204" key="GridCell.Tab.0.right/0.23.1440.796@0.23.1440.796" timestamp="1597791558245" />
+    <state x="184" y="86" key="MergeDialog" timestamp="1598275397289">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="184" y="86" key="MergeDialog/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598275397289" />
+    <state x="598" y="281" width="831" height="477" key="MultipleFileMergeDialog" timestamp="1598275397294">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="598" y="281" width="831" height="477" key="MultipleFileMergeDialog/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598275397294" />
+    <state x="727" y="222" key="RollbackChangesDialog" timestamp="1598122979021">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="727" y="222" key="RollbackChangesDialog/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598122979021" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1597142120769">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597142120769" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597142189894">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1598276359294">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597142189894" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598276359294" />
+    <state x="854" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1597844131155">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="854" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597844131155" />
+    <state x="540" y="175" key="com.intellij.database.dbimport.ImportDialog" timestamp="1597844237194">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="540" y="175" key="com.intellij.database.dbimport.ImportDialog/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597844237194" />
+    <state x="756" y="340" width="408" height="355" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1598259293770">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="756" y="340" width="408" height="355" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598259293770" />
+    <state x="816" y="153" width="597" height="454" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1597937228815">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="816" y="153" width="597" height="454" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597937228815" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597847594632">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597847594632" />
+    <state x="488" y="141" key="git4idea.branch.GitSmartOperationDialog" timestamp="1597824726220">
+      <screen x="0" y="23" width="1440" height="796" />
+    </state>
+    <state x="488" y="141" key="git4idea.branch.GitSmartOperationDialog/0.23.1440.796@0.23.1440.796" timestamp="1597824726220" />
     <state x="677" y="328" key="jetbrains.nodejs.interpreters-dialog" timestamp="1597237769563">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="677" y="328" key="jetbrains.nodejs.interpreters-dialog/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597237769563" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597920722591">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597920722591" />
   </component>
 </project>
