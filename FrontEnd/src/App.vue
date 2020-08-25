@@ -11,7 +11,6 @@
 import Navbar from "./components/navbar/Navbar";
 import io from 'socket.io-client'
 
-
 export default {
   components: {
     Navbar

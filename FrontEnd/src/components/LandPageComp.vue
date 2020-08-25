@@ -3,7 +3,7 @@
         <div id="container-for-content">
             <div class="content">
                 <div id="title-section">
-                    <img id="logo" src="../assets/logo.png" alt="bild finns ei">
+                    <img id="logo" src="../assets/logo.png" alt="bild finns ej">
                     <h1 id="name">WishList</h1>
                 </div>
                 <div id="information-section">

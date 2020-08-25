@@ -4,7 +4,7 @@ import Home from '../views/Home.vue'
 import CreateList from '@/views/CreateList'
 import myWishinglists from '@/views/myWishinglists'
 import myAssignedLists from '@/views/myAssignedLists'
-import landPage from '../views/LandingPage.vue'
+import LandingPage from "@/views/LandingPage";
 
 Vue.use(VueRouter)
 
@@ -43,9 +43,9 @@ const routes = [
         component: myAssignedLists
     },
     {
-        path: '/landingPage',
-        name: 'LandingPage',
-        component: landPage
+        path: '/landingpage',
+        name: 'Landingpage',
+        component: LandingPage
     }
 ]
 
