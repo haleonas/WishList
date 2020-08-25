@@ -7,6 +7,7 @@
         v-model="selected"
         @input="$emit('name-selected',selected)"
     />
+
   </div>
 </template>
 
@@ -15,21 +16,34 @@ import 'vue-select/dist/vue-select.css'
 
 export default {
   name: "NameSelector",
-  data() {
-    return {
-      selected: [],
-      options: [
-        {optionName: "Jesper (altes@live.se)", name: "Jesper", email: "altes@live.se"},
-        {optionName: "Maria (maria.edstrom@live.se)", name: "Maria", email: "maria.edstrom@live.se"},
-        {optionName: "Kurt (kurt.johansson@live.se)", name: "Kurt", email: "kurt.johansson@live.se"},
-        {optionName: "Markus (markus.karlsson@live.se)", name: "Markus", email: "markus.karlsson@live.se"},
-        {optionName: "Monika (monika.musak@live.se)", name: "Monika", email: "monika.musak@live.se"}
-      ]
-    }
+  props: {
+    options: Array,
+    preSelected: Array
   },
-  watch: {
-    'selected': function () {
-      console.log('value changed')
+ mounted() {
+    this.options.map(option => {
+      option.optionName = `${option.firstname} ${option.lastname} (${option.phone})`
+    })
+  },
+  data(){
+    return {
+        selected: this.preSelected
+      }
+  },
+  watch:{
+    preSelected(){
+      for(let i = 0; i < this.options.length; i++){
+        for(let j = 0; j < this.preSelected.length; j++){
+          if(this.preSelected[j].optionName === this.options[i].optionName){
+            this.selected.push(this.options[i])
+          }
+        }
+      }
+    },
+    options(){
+      this.options.map(option => {
+        option.optionName = `${option.firstname} ${option.lastname} (${option.phone})`
+      })
     }
   },
   methods: {

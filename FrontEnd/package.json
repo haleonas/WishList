@@ -12,16 +12,20 @@
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/vue-fontawesome": "^0.1.10",
     "axios": "^0.19.2",
+    "buefy": "^0.8.20",
     "core-js": "^3.6.5",
     "fontawesome": "^5.6.3",
     "install": "^0.13.0",
     "npm": "^6.14.8",
     "register-service-worker": "^1.7.1",
+    "socket.io": "^2.3.0",
+    "uniqid": "^5.2.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vue-select": "^3.10.8",
     "vue-simple-search-dropdown": "^1.0.1",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "vuex-persistedstate": "^3.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -33,6 +37,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "vue-cli-plugin-buefy": "~0.3.7",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
