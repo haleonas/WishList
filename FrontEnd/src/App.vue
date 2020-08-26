@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-      <navbar/>
-    </div>
+      <navbar />
+    </div>   
     <router-view/>
   </div>
 </template>
@@ -30,6 +30,8 @@ export default {
     if (this.$store.getters.isLoggedIn) {
       console.log('retrieving users')
       this.$store.dispatch('retrieveUsers')
+    }else{
+      this.$router.push({path: 'landingPage'})
     }
 
     //when backend makes a emit for 'update', update all retrieved users
@@ -40,6 +42,7 @@ export default {
         this.$store.dispatch('retrieveUsers')
       }
     })
+    
   },
   methods: {
     displayNotification() {
@@ -64,7 +67,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
