@@ -3,7 +3,7 @@
         <div id="container-for-content">
             <div class="content">
                 <div id="title-section">
-                    <img id="logo" src="../assets/logo.png" alt="bild finns ei">
+                    <img id="logo" src="../assets/logo.png" alt="Kan inte hitta logan">
                     <h1 id="name">WishList</h1>
                 </div>
                 <div id="information-section">
@@ -42,6 +42,7 @@ export default {
     name: "LandingPageComp",
     data() {
         return {
+            // check if present is open or not and correspond that with the HTML (v-show="!active" or v-show="active")
             active: true
         } 
     },  
@@ -73,6 +74,7 @@ export default {
         display: flex;
         padding: 26px;
     }
+    /* Name aka title for the name of the project */
     #name{
         flex: 1;
         margin: auto;
@@ -113,6 +115,9 @@ export default {
         display: flex;
         margin: auto;   
     }
+    /* The psuedo-class that attaches to the elemnts below creates in an interactive experience 
+    for the user but this is not done yet as i want to distinguish 
+    the ikons in the image for some sort in the future */
     #container-for-image:hover {
         box-shadow:inset 2px 2px 20px 2000px rgba(0,0,0,.07);
         filter: brightness(93%);
@@ -131,15 +136,50 @@ export default {
         max-width: 720px;
         box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.18);
     }
-    /* this element takes care of the (<div id="toggle-img" @click="active = !active">) = transperent button*/
+    /* This element takes care of the (<div id="toggle-img" @click="active = !active">) = transperent button*/
     #toggle-img{
         width: fit-content;
         height: fit-content;
         position: relative;
     }
-    #SpeechBubble{
-        pointer-events: none; /* so the user cant open the present by clicking on the speetch bubble */
+    
+/* 
+    The actual present-icon as shown in the website 
+*/
+    .present-icon-btn {
+        visibility: visible;
+        width: 100px;
+        cursor: pointer;
+        z-index: 10;
+        animation-name: present-icon-btn; /*connects to the keyframe of the animation that will occur*/
+        
+        animation-duration: 0.20s; /* Specifies how many seconds or milliseconds a transition effect takes to complete */
+        
+        animation-timing-function: linear; /*definition of how the animation should move time wise = called timing-function*/
+                                            /* Some examples would be:
+                                                * ease-in = specifies a transition effect with a slow start, then fast, then end slowly
+                                                * ease-in-out = specifies a transition effect with a slow start and end  
+                                                * linear = specifies a transition effect with the same speed from start to end
+                                            */
+        
+        animation-iteration-count: infinite; /*animation never stops*/
+        animation-delay: 3s; /* this will make present shake efter 3 seconds from that the site is opened */
     }
+    
+    @keyframes present-icon-btn {
+        50% { /* halfway in to the animation as this is the Percentage of the animation duration */
+            transform: translateX(3px) rotate(2deg);
+        }
+        100% {
+            transform: translateX(-3px) rotate(-2deg);
+        }
+    }
+
+/*
+    Input that will be shown after the user interacts with present
+*/
+
+    /* This will probably get taken away, but i still have it for now */
     .input-txt {
         display: flex;
         width: 80%;
@@ -164,57 +204,25 @@ export default {
     .input-btn:hover{
         background: olivedrab;
     }
+
     @keyframes showInput {
         0%   {opacity: 0%;}
         100% {opacity:100%;}
     }
 
-    /* 
-        the actual present-icon as shown in the website 
-    */
-    .present-icon-btn {
-        visibility: visible;
-        width: 100px;
-        cursor: pointer;
-        z-index: 10;
-        animation-name: present-icon-btn; /*connects to the keyframe of the animation that will occur*/
-        
-        animation-duration: 0.20s; /* Specifies how many seconds or milliseconds a transition effect takes to complete */
-        
-        animation-timing-function: linear; /*definition of how the animation should move time wise = called timing-function*/
-                                            /* Some examples would be:
-                                                * ease-in = specifies a transition effect with a slow start, then fast, then end slowly
-                                                * ease-in-out = specifies a transition effect with a slow start and end  
-                                                * linear = specifies a transition effect with the same speed from start to end
-                                            */
-        
-        animation-iteration-count: infinite; /*animation never stops*/
-        animation-delay: 3s;
-    }
-    
-    @keyframes present-icon-btn {
-        50% { /* halfway in to the animation as this is the Percentage of the animation duration */
-            transform: translateX(3px) rotate(2deg);
-        }
-        100% {
-            transform: translateX(-3px) rotate(-2deg);
-        }
-    }
-    
-
 /*
-    speech bubble
+    Speech bubble
 */
+    #SpeechBubble{
+        pointer-events: none; /* so the user cant open the present by clicking on the speetch bubble */
+    }
 
-    /* #SpeechBubble is set as a child of #Rectangle to make positioning
+    /* #SpeechBubble is set as a child of #present to make positioning
     it easier. #SpeechBubble is given an absolute position so that its 
-    position is relative to the #Rectangle (its parent). Its scale is 
-    set to zero since it should only appear when the mouse hovers over
-    #Rectangle. The 'animation-fill-mode' property is set to 'forwards' 
-    so that  the scale value stays at 1 after the animation finishes, 
-    otherwise  #SpeechBubble will disappear once the animation finishes. 
-    The 'animation-name' property is omitted since it's going to be 
-    set by jQuery instead */
+    position is relative to the #present (its parent). Its scale is 
+    set to zero since it appear when the website opens. The 'animation-fill-mode' property is set to 'forwards' 
+    so that the scale value stays at 1 after the animation finishes, 
+    otherwise #SpeechBubble will disappear once the animation finishes. */
     #SpeechBubble {
         position: absolute;
         transform-origin: 0% 100%; 
@@ -234,11 +242,10 @@ export default {
         animation-delay: 2s;
 
     }
-    /* We need to add a tail to the speech bubble. This is done using
+    /* This is the tail to the speech bubble. This is done using
     the ::before pseudo-element. The tail's size is controlled by 
     its borders. The right and bottom borders are given a transparent
-    color so that the tail still retains its shape while giving the
-    desired look */
+    color so that the tail still retains its shape */
     #SpeechBubble::before {
         content: "";
         display: block;
@@ -251,9 +258,9 @@ export default {
         border-color: #5a5a5a transparent transparent #5a5a5a;
         transform: rotate(10deg);
     }
-        /* Here the scale changes from 0 to 1. To add the bounciness 
-    effect, the scale is set to 1.25 midway through the animation
-    to give the animation a nicer effect. */
+    /* Expand-bounce triggers 3 times where the scale 
+    changes from 0 to 1. To add the bounciness effect, 
+    the scale is set to 1.25 midway through the animation. */
     @keyframes expand-bounce {
         0% {
             transform: scale(0);
