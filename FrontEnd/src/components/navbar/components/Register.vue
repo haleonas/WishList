@@ -1,10 +1,10 @@
 <template>
   <b-dropdown
-      position="is-bottom-left"
-      append-to-body
-      aria-role="menu"
-      trap-focus
-      v-if="!$store.getters.isLoggedIn"
+    position="is-bottom-left"
+    append-to-body
+    aria-role="menu"
+    trap-focus
+    v-if="!$store.getters.isLoggedIn"
   >
     <a class="navbar-item" slot="trigger" role="button">
       <span>Register</span>
@@ -29,11 +29,11 @@
             </b-field>
             <b-field label="Password">
               <b-input
-                  type="password"
-                  password-reveal
-                  placeholder="Your password"
-                  required
-                  v-model="regPassword"
+                type="password"
+                password-reveal
+                placeholder="Your password"
+                required
+                v-model="regPassword"
               ></b-input>
             </b-field>
           </section>
@@ -57,32 +57,41 @@ export default {
       regPassword: "",
       firstName: "",
       lastName: "",
-      phone: "",
-    }
+      phone: ""
+    };
   },
   methods: {
     async register() {
       try {
         let response = await axios.post(
-            "http://localhost:3000/register",
-            {
-              username: this.regUsername,
-              firstname: this.firstName,
-              lastname: this.lastName,
-              phone: this.phone,
-              password: this.regPassword
-            },
-            { withCredentials: true }
+          "http://localhost:3000/register",
+          {
+            username: this.regUsername,
+            firstname: this.firstName,
+            lastname: this.lastName,
+            phone: this.phone,
+            password: this.regPassword
+          },
+          { withCredentials: true }
         );
+        this.$buefy.notification.open({
+          message: "You have registered successfully and may now login!",
+          type: "is-success",
+          hasIcon: true
+        });
         console.log(response);
       } catch (err) {
+        this.$buefy.notification.open({
+          message: "Username already exists!",
+          type: "is-danger",
+          hasIcon: true
+        });
         console.log(err);
       }
-    },
+    }
   }
-}
+};
 </script>
 
 <style scoped>
-
 </style>

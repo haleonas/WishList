@@ -5,6 +5,8 @@ const cors = require('cors')
 const {v4: uuidv4} = require('uuid')
 //const {PRIVATE_VAPID_KEY, PUBLIC_VAPID_KEY} = require('./extra/keys')
 const cookieParser = require('cookie-parser')
+const bcrypt = require('bcrypt')
+
 const app = express()
 const server = require('http').createServer(app)
 const io = require('socket.io')(server, { origins: '*:*'});
@@ -42,33 +44,47 @@ sqlite
     })
 
 app.post('/register', (req, res) => {
-    database_.run('INSERT INTO users(username,firstname,lastname,phone,password) VALUES(?,?,?,?,?)', [req.body.username, req.body.firstname, req.body.lastname, req.body.phone, req.body.password])
-        .then(() => {
-            console.log('User added')
-            connectedSockets.forEach(client => {
-                client.emit('update')
+
+    bcrypt.hash(req.body.password, 10, (err, hash) => {
+        database_.run('INSERT INTO users(username,firstname,lastname,phone,password) VALUES(?,?,?,?,?)', [req.body.username, req.body.firstname, req.body.lastname, req.body.phone, hash])
+            .then(() => {
+                console.log('User added')
+                connectedSockets.forEach(client => {
+                    client.emit('update')
+                })
+                res.status(200).send('User added')
             })
-            res.status(200).send('User added')
-        })
-        .catch((e) => {
-            console.log('something went wrong ', e)
-            res.status(500).send({message: 'Failed to register, ', e})
-        })
+            .catch((e) => {
+                console.log('something went wrong ', e)
+                res.status(401).send('Failed to reguster ' + e)
+            })
+    })
 })
 
 app.post('/login', async (req, res) => {
-    const rows = await database_.all('SELECT * FROM users WHERE username = ? AND password = ?', [req.body.username, req.body.password])
-    console.log('error')
+    const rows = await database_.all('SELECT * FROM users WHERE username = ?', [req.body.username])
     if (rows.length === 1) {
-        console.log('logged in')
-        const userid = rows[0].userid
-        const token = uuidv4()
-        await database_.all('INSERT INTO sessionStorage(token,userid) VALUES(?,?)', [token, userid])
-        res.set('Set-Cookie', `token=${token}; path=/; SameSite = LAX`)
-        res.status(200).send({token, user: rows[0]})
+        bcrypt.compare(req.body.password, rows[0].password, async (err, result) => {
+            if (!result) {
+                console.log('wrong password')
+                return res.status(401).send({
+                    msg: "Wrong username or password"
+                })
+            }
+            if (result) {
+                console.log('logged in')
+                const userid = rows[0].userid
+                const token = uuidv4()
+                await database_.all('INSERT INTO sessionStorage(token,userid) VALUES(?,?)', [token, userid])
+                res.set('Set-Cookie', `token=${token}; path=/; SameSite = LAX`)
+                res.status(200).send({ token, user: rows[0] })
+            }
+        })
     } else {
-        console.log('not logged in')
-        res.status(401).send('not logged in')
+        console.log('wrong username')
+        res.status(401).send({
+            msg: "Username does not exist"
+        })
     }
 })
 
