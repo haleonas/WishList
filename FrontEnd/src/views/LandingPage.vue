@@ -13,8 +13,6 @@ export default {
         landingPage: landingPage
     }
 }
-</script>
 
-<style scoped>
-    
-</style>
+
+</script>

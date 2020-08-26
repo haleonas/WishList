@@ -13,8 +13,6 @@ import './icons.js'
 
 Vue.use(Buefy)
 
-Vue.use(Buefy)
-
 Vue.config.productionTip = false
 
 Vue.component('v-select', vSelect)
@@ -38,3 +36,11 @@ if (navigator.serviceWorker && Notification.permission === 'granted') {
             })
     })
 }
+
+/*
+if (this.$store.getters.isloggedin) {
+                this.router.push('HelloWorld')
+            } else {
+                console.log('user does not have  token');
+            }   
+*/

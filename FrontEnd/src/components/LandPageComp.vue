@@ -33,6 +33,7 @@
                 <img src="../assets/PARTY-01.svg" alt="could not find the image" >
             </div>
         </div>
+
     </div>
 </template>
 
@@ -43,12 +44,12 @@ export default {
         return {
             active: true
         } 
-    },
+    },  
     methods: {
         tryForFree() {
-            //.......
-        }
-    }
+            this.$router.push({name: 'RegisterFromLandingPage'})
+            }
+        },
 }
 </script>
 
@@ -262,16 +263,6 @@ export default {
         }
         100% {
             transform: scale(1);
-        }
-    }
-
-    /* Here the scale simply goes from 1 back to 0 */
-    @keyframes shrink {
-        0% {
-            transform: scale(1);
-        }
-        100% {
-            transform: scale(0);
         }
     }
 </style>

@@ -7,7 +7,7 @@ const {v4: uuidv4} = require('uuid')
 const cookieParser = require('cookie-parser')
 const app = express()
 const server = require('http').createServer(app)
-const io = require('socket.io')(server)
+const io = require('socket.io')(server, { origins: '*:*'});
 
 const connectedSockets = []
 
@@ -28,7 +28,7 @@ io.on('connection', client => {
 //http://192.168.10.125:5500
 
 app.use(
-    cors({credentials: true, origin: 'http://localhost:5500'}),
+    cors({credentials: true, origin: 'http://localhost:8080'}),
     express.json(),
     express.static('assets'),
     cookieParser())

@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import landPage from '../views/LandingPage.vue'
 import CreateList from '@/views/CreateList'
 import myWishinglists from '@/views/myWishinglists'
 import myAssignedLists from '@/views/myAssignedLists'
+import LandingPage from "@/views/LandingPage";
+import RegisterFromLandingPage from "@/views/RegisterFromLandingPage";
 
 Vue.use(VueRouter)
 
@@ -43,11 +44,15 @@ const routes = [
         component: myAssignedLists
     },
     {
-      path: '/landingPage',
-      name: 'LandingPage',
-      component: landPage
+        path: '/landingpage',
+        name: 'Landingpage',
+        component: LandingPage
+    },
+    {
+        path: '/register',
+        name: 'RegisterFromLandingPage',
+        component: RegisterFromLandingPage
     }
-
 ]
 
 const router = new VueRouter({
