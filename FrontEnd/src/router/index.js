@@ -54,7 +54,7 @@ const routes = [
 
     {
         path: '/details/:name',
-        name:'details/:name',
+        name:'details',
         component: Finalview
    
     }

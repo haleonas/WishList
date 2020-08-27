@@ -239,17 +239,20 @@ app.get('/assignedlists', authenticate, async (req, res) => {
 
 server.listen(3000)
 
+
 //-------------------MY CODE ---------------------------------
 
-app.get('/itemList', async (req, res) => {
+app.get('/list/:listUrl', async (req, res) => {
     try {
-        const rows = await database_.all('SELECT * FROM list_items' )
-        res.status(200).send(rows)
-    } catch (e) {
-        console.log('could not retrieve items')
-        res.status(500).send({ message: 'Something went wrong while retrieving items ', e })
+      const itemList = await database_.all('SELECT item_name, item_descriptions from list_items INNER JOIN lists ON lists.list_id = list_items.list_id WHERE list_url = ?', [req.params.listUrl])
+        res.status(200).send(itemList) 
+    } catch (error) {
+        console.log('Nope')
+        res.status(500).send({ message: 'Something went wrong while retrieving items ', error })
     }
 })
+
+
 
 
 

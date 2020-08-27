@@ -1,17 +1,12 @@
 <template>
-    <div>
-
- <p>{{ this.$route.params.name }}</p>
-
-    </div>
+  <div></div>
 </template>
 
 <script>
 export default {
-    
-}
+  name: "Item",
+};
 </script>
 
-<style lang="stylus" scoped>
-
+<style scoped>
 </style>

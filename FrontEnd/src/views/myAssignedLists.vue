@@ -32,9 +32,11 @@ export default {
       }
 
     },
-    selectedItem(event) {
+ selectedItem(event) {
       console.log(event.list_url)
       this.$router.push(`/list/${event.list_url}`)
+
+    
     }
   },
   beforeMount() {
@@ -43,7 +45,7 @@ export default {
   data() {
     return {
 
-
+items: [],
       selected: null,
       data: [],
       columns: [
