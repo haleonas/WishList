@@ -9,6 +9,7 @@ const bcrypt = require('bcrypt')
 
 const app = express()
 const server = require('http').createServer(app)
+
 const io = require('socket.io')(server, { origins: '*:*'});
 
 const connectedSockets = []
