@@ -15,6 +15,8 @@
       </section>
       <section>
         <button class="button is-medium" @click="createList">Save List</button>
+        <br>
+        Remember to press the Save list button to save the changes you have done
       </section>
       <section>
         <hr>
