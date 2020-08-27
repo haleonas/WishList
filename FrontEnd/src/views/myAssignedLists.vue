@@ -10,6 +10,10 @@
     </div>
   </div>
 </template>
+
+
+
+
 <script>
 import axios from 'axios'
 
@@ -21,16 +25,18 @@ export default {
       try {
         const response = await axios.get('http://localhost:3000/assignedlists', {withCredentials: true})
         this.data = response.data
-        console.log(response.data)
+//        console.log(response.data)
       } catch (error) {
         console.log(error)
 
       }
 
     },
-    selectedItem(event) {
-      console.log(event.list_url)
+ selectedItem(event) {
+    //  console.log(event.list_url)
       this.$router.push(`/list/${event.list_url}`)
+
+    
     }
   },
   beforeMount() {
@@ -39,7 +45,7 @@ export default {
   data() {
     return {
 
-
+items: [],
       selected: null,
       data: [],
       columns: [

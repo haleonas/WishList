@@ -6,6 +6,9 @@ import myWishinglists from '@/views/myWishinglists'
 import myAssignedLists from '@/views/myAssignedLists'
 import LandingPage from "@/views/LandingPage";
 import RegisterFromLandingPage from "@/views/RegisterFromLandingPage";
+import DetailedV from '../views/DetailedV.vue'
+import Finalview from '../views/Finalview.vue'
+
 
 Vue.use(VueRouter)
 
@@ -52,6 +55,19 @@ const routes = [
         path: '/register',
         name: 'RegisterFromLandingPage',
         component: RegisterFromLandingPage
+    },
+
+    {
+        path: '/list/:url',
+        name:'list/:url',
+        component: DetailedV
+
+    },
+    {
+        path: '/details/:name',
+        name:'details',
+        component: Finalview
+
     }
 ]
 

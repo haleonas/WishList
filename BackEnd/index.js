@@ -254,3 +254,57 @@ app.get('/assignedlists', authenticate, async (req, res) => {
 })
 
 server.listen(3000)
+
+
+//-------------------MY CODE ---------------------------------
+
+app.get('/list', authenticate, async (req, res) => {
+    console.log(req.query.listUrl)
+    try {
+        const lists = await database_.all('SELECT * FROM lists WHERE list_url = ?', [req.query.listUrl])
+        const listId = lists[0].list_id
+
+        const users = await database_.all('SELECT * FROM list_users WHERE list_id= ?', [listId])
+
+        if(users.find(user => user.userid === req.userid)){
+            console.log('part of the list')
+            const listItems = await database_.all('SELECT * FROM list_items where list_id = ? ', [listId])
+            const listUsers = await database_.all('select * from list_users_view where list_id = ?', [listId])
+
+            let obj = {
+                listName: lists[0].list_name,
+                items: listItems,
+                users: listUsers
+            }
+
+            res.status(200).send(obj)
+        } else {
+            console.log('not part of the list')
+            res.status(401).send({message:'Your are not a part of this list'})
+        }
+
+
+    } catch (e) {
+        console.log('[List]: Something went wrong while retrieving list data, ', e)
+        res.status(500).send({message: 'Something went wrong while retrieving list data ', e})
+    }
+})
+
+app.patch('/list', async (req, res) => {
+    //console.log(req.body.itemList)
+
+    try {
+        for (const item of req.body.itemList) {
+            await database_.run('UPDATE list_items SET completed = ? WHERE list_item_id = ?', [item.completed, item.list_item_id])
+            console.log('YAY!!!')
+        }
+        res.status(200).send({message: 'yay'})
+    } catch (e) {
+        res.status(500).send({message: `${e}`})
+    }
+})
+
+
+
+
+
