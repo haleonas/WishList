@@ -66,6 +66,8 @@ export default {
         let token = response.data.token;
         await this.$store.dispatch("login", { user, token });
         await this.$router.push({name: 'myWishinglists'});
+        this.logUsername = ""
+        this.password = ""
       } catch (err) {
         console.log(err);
         this.$buefy.notification.open({

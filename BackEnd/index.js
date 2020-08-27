@@ -31,7 +31,7 @@ io.on('connection', client => {
 //http://192.168.10.125:5500
 
 app.use(
-    cors({credentials: true, origin: 'http://localhost:8080'}),
+    cors({credentials: true, origin: 'http://localhost:5500'}),
     express.json(),
     express.static('assets'),
     cookieParser())

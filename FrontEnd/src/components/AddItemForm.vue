@@ -9,7 +9,7 @@
           <b-input type="text" v-model="itemName" placeholder="Name of the item" required></b-input>
         </b-field>
         <b-field label="Description of item">
-          <b-input type="text" v-model="itemDescription" placeholder="Description of item" required/>
+          <b-input type="textarea" v-model="itemDescription" placeholder="Description of item" required/>
         </b-field>
         <b-field label="Url suggestion">
           <b-input type="url" v-model="itemUrl" placeholder="Url suggestion" required/>
