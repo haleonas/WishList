@@ -232,7 +232,7 @@ app.get('/editlist', authenticate, async (req, res) => {
         res.status(500).send({message: 'Something went wrong while retrieving list data ', e})
     }
 })
-
+//------------------------------------Marcus backend-------------------------------------------
 app.get('/lists', authenticate ,async (req, res) => {
     try {
         const rows = await database_.all('SELECT * FROM lists WHERE list_creator_id = ?', [req.userid])
@@ -245,7 +245,7 @@ app.get('/lists', authenticate ,async (req, res) => {
 
 app.get('/assignedlists', authenticate, async (req, res) => {
     try {
-        console.log('Getting friend lists')
+        console.log('Getting assigned lists')
         const rows = await database_.all('select list_url,list_name, users.firstname ||\' \'|| users.lastname as name from lists inner join list_users on lists.list_id = list_users.list_id inner join users on users.userid = lists.list_creator_id where list_users.userid = ?', [req.userid])
         res.status(200).send(rows)
     } catch (e) {
@@ -254,10 +254,12 @@ app.get('/assignedlists', authenticate, async (req, res) => {
     }
 })
 
+//---------------------------------------------------------------------------------------------
+
 server.listen(3000)
 
 
-//-------------------MY CODE ---------------------------------
+//-------------------Monikas CODE ---------------------------------
 
 app.get('/list', authenticate, async (req, res) => {
     console.log(req.query.listUrl)
