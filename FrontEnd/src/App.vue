@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <navbar />
-    </div>   
+      <navbar v-show="navbarState" />  
     <router-view/>
   </div>
 </template>
@@ -14,6 +12,11 @@ import io from 'socket.io-client'
 export default {
   components: {
     Navbar
+  },
+  data() {
+    return {
+      navbarState: false // display if logged in
+    }
   },
   updated() {
     this.displayNotification()
@@ -30,10 +33,14 @@ export default {
     if (this.$store.getters.isLoggedIn) {
       console.log('retrieving users')
       this.$store.dispatch('retrieveUsers')
+      this.navbarState = true
     }else{
-      this.$router.push({path: 'landingPage'})
+      // this.$router.push({path: 'landingPage'})
+      this.navbarState = false
+      console.log('inte inloggad');
+      
     }
-
+    
     //when backend makes a emit for 'update', update all retrieved users
     client.on('update', () => {
       console.log('Someone has registered')

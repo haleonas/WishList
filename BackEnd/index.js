@@ -14,6 +14,7 @@ const io = require('socket.io')(server, { origins: '*:*'});
 
 const connectedSockets = []
 
+
 io.on('connection', client => {
     connectedSockets.push(client)
 
@@ -31,7 +32,7 @@ io.on('connection', client => {
 //http://192.168.10.125:5500
 
 app.use(
-    cors({credentials: true, origin: 'http://localhost:5500'}),
+    cors({credentials: true, origin: 'http://localhost:8081'}),
     express.json(),
     express.static('assets'),
     cookieParser())
@@ -257,6 +258,8 @@ app.get('/assignedlists', authenticate, async (req, res) => {
 //---------------------------------------------------------------------------------------------
 
 server.listen(3000)
+
+
 
 
 //-------------------Monikas CODE ---------------------------------
