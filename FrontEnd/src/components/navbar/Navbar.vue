@@ -25,6 +25,14 @@ export default {
     appLinks: Links
   }
 };
+// let showNavbar = document.getElementById('navbar');
+// if (isloggedin = false){
+//   console.log('navbar ska inte visas');
+  
+// }
+
+
+
 </script>
 
 <style scoped>

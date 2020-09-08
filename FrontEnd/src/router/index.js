@@ -8,6 +8,7 @@ import LandingPage from "@/views/LandingPage";
 import RegisterFromLandingPage from "@/views/RegisterFromLandingPage";
 import DetailedV from '../views/DetailedV.vue'
 import Finalview from '../views/Finalview.vue'
+import LoginFromLandingPage from '../views/LoginFromLandingPage.vue'
 
 
 Vue.use(VueRouter)
@@ -56,18 +57,20 @@ const routes = [
         name: 'RegisterFromLandingPage',
         component: RegisterFromLandingPage
     },
-
     {
         path: '/list/:url',
         name:'list/:url',
         component: DetailedV
-
     },
     {
         path: '/details/:name',
         name:'details',
         component: Finalview
-
+    },
+    {
+        path: '/login',
+        name:'login',
+        component: LoginFromLandingPage
     }
 ]
 
