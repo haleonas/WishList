@@ -38,11 +38,3 @@ if (navigator.serviceWorker && Notification.permission === 'granted') {
             })
     })
 }
-
-/*
-if (this.$store.getters.isloggedin) {
-                this.router.push('HelloWorld')
-            } else {
-                console.log('user does not have  token');
-            }   
-*/

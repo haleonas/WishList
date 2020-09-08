@@ -63,20 +63,27 @@ export default {
             { withCredentials: true }
         );
         console.log(response);
-        if (response.status === 200) {
+         
+        if (response.status === 200) {   
             this.$buefy.notification.open({
             message: "You have registered successfully and may now login!",
             type: "is-success",
             hasIcon: true
         });
             this.$router.push('/')
-        } 
+        }
+        this.regUsername = ""
+        this.password = ""
+        this.firstname = ""
+        this.lastname = ""
+        this.phone = ""
         } catch (err) {
             this.$buefy.notification.open({
             message: "Username already exists!",
             type: "is-danger",
             hasIcon: true
             })
+            console.log(err);
         }
     }
 }}

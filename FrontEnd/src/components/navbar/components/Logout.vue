@@ -42,6 +42,7 @@ export default {
         );
         console.log(response);
         await this.$router.push("/");
+        window.location.reload()
       } catch (err) {
         console.log(err);
       }

@@ -1,5 +1,5 @@
 <template>
-    <div id="landingpage">
+    <div id="conditionalComponent" >
         <landingPage></landingPage>
     </div>
 </template>

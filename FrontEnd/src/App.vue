@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      <navbar v-show="navbarState" />  
+      <navbar/>  
     <router-view/>
   </div>
 </template>
@@ -13,30 +13,27 @@ export default {
   components: {
     Navbar
   },
-  data() {
-    return {
-      navbarState: false // display if logged in
-    }
-  },
+  
   updated() {
     this.displayNotification()
   },
   mounted() {
     Notification.requestPermission(status => {
-      console.log(status)
+      console.log('show notifications: ' + status)
+     
     })
 
     //connecting to server socket
     const client = io.connect('http://localhost:3000')
 
-    //to make sure that if the user is logged in, the user will get all the users
+    //to make sure that if the user is logged in, the user will get all the users,
+    // and show the navbar
     if (this.$store.getters.isLoggedIn) {
       console.log('retrieving users')
       this.$store.dispatch('retrieveUsers')
-      this.navbarState = true
+      
     }else{
-      // this.$router.push({path: 'landingPage'})
-      this.navbarState = false
+     
       console.log('inte inloggad');
       
     }
@@ -75,24 +72,6 @@ export default {
 </script>
 
 <style scoped>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 
-#nav {
-  padding: 30px;
-}
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

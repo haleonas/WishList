@@ -61,8 +61,6 @@ export default {
           },
           { withCredentials: true }
         );
-        console.log('im here');
-        
         console.log(response);
         let user = response.data.user;
         let token = response.data.token;
