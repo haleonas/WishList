@@ -9,6 +9,7 @@ const bcrypt = require('bcrypt')
 
 const app = express()
 const server = require('http').createServer(app)
+
 const io = require('socket.io')(server, { origins: '*:*'});
 
 const connectedSockets = []
@@ -30,7 +31,7 @@ io.on('connection', client => {
 //http://192.168.10.125:5500
 
 app.use(
-    cors({credentials: true, origin: 'http://localhost:8080'}),
+    cors({credentials: true, origin: 'http://localhost:5500'}),
     express.json(),
     express.static('assets'),
     cookieParser())
@@ -231,7 +232,7 @@ app.get('/editlist', authenticate, async (req, res) => {
         res.status(500).send({message: 'Something went wrong while retrieving list data ', e})
     }
 })
-
+//------------------------------------Marcus backend-------------------------------------------
 app.get('/lists', authenticate ,async (req, res) => {
     try {
         const rows = await database_.all('SELECT * FROM lists WHERE list_creator_id = ?', [req.userid])
@@ -244,7 +245,7 @@ app.get('/lists', authenticate ,async (req, res) => {
 
 app.get('/assignedlists', authenticate, async (req, res) => {
     try {
-        console.log('Getting friend lists')
+        console.log('Getting assigned lists')
         const rows = await database_.all('select list_url,list_name, users.firstname ||\' \'|| users.lastname as name from lists inner join list_users on lists.list_id = list_users.list_id inner join users on users.userid = lists.list_creator_id where list_users.userid = ?', [req.userid])
         res.status(200).send(rows)
     } catch (e) {
@@ -253,4 +254,60 @@ app.get('/assignedlists', authenticate, async (req, res) => {
     }
 })
 
+//---------------------------------------------------------------------------------------------
+
 server.listen(3000)
+
+
+//-------------------Monikas CODE ---------------------------------
+
+app.get('/list', authenticate, async (req, res) => {
+    console.log(req.query.listUrl)
+    try {
+        const lists = await database_.all('SELECT * FROM lists WHERE list_url = ?', [req.query.listUrl])
+        const listId = lists[0].list_id
+
+        const users = await database_.all('SELECT * FROM list_users WHERE list_id= ?', [listId])
+
+        if(users.find(user => user.userid === req.userid)){
+            console.log('part of the list')
+            const listItems = await database_.all('SELECT * FROM list_items where list_id = ? ', [listId])
+            const listUsers = await database_.all('select * from list_users_view where list_id = ?', [listId])
+
+            let obj = {
+                listName: lists[0].list_name,
+                items: listItems,
+                users: listUsers
+            }
+
+            res.status(200).send(obj)
+        } else {
+            console.log('not part of the list')
+            res.status(401).send({message:'Your are not a part of this list'})
+        }
+
+
+    } catch (e) {
+        console.log('[List]: Something went wrong while retrieving list data, ', e)
+        res.status(500).send({message: 'Something went wrong while retrieving list data ', e})
+    }
+})
+
+app.patch('/list', async (req, res) => {
+    //console.log(req.body.itemList)
+
+    try {
+        for (const item of req.body.itemList) {
+            await database_.run('UPDATE list_items SET completed = ? WHERE list_item_id = ?', [item.completed, item.list_item_id])
+            console.log('YAY!!!')
+        }
+        res.status(200).send({message: 'yay'})
+    } catch (e) {
+        res.status(500).send({message: `${e}`})
+    }
+})
+
+
+
+
+

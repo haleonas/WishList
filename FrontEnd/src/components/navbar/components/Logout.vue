@@ -41,7 +41,7 @@ export default {
             {withCredentials: true}
         );
         console.log(response);
-        this.$router.push("/");
+        await this.$router.push("/");
       } catch (err) {
         console.log(err);
       }

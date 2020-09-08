@@ -1,9 +1,10 @@
 <template>
-  <div>
-    <section v-if="$store.getters.isLoggedIn">
-      <b-field label="Name of list" style="width: 300px">
+  <div id="create-list">
+    <section v-if="$store.getters.isLoggedIn" id="list">
+      <b-field label="Name of list">
         <b-input v-model="listName" type="text" placeholder="Name of the wishlist"></b-input>
       </b-field>
+      <hr>
       <div v-for="(item,index) in listItems" :key="index">
         <app-list-item :item="item" :remove="remove"/>
       </div>
@@ -14,9 +15,6 @@
         </button>
       </section>
       <section>
-        <button class="button is-medium" @click="createList">Save List</button>
-      </section>
-      <section>
         <hr>
         <section v-for="(friend,index) in listFriends" :key="index">{{ friend.optionName }}</section>
         Add Friends
@@ -24,6 +22,13 @@
                            :pre-selected="tempList"
                            @name-selected="updateSelected"/>
       </section>
+
+      <section style="margin-top:5px">
+        <button class="button is-medium" @click="createList">Save List</button>
+        <br>
+        <p id="text">Remember to press the Save list button to save the changes you have done</p>
+      </section>
+
     </section>
     <section v-else>
       You are not logged in and can't create a list nor edit a list
@@ -78,7 +83,7 @@ export default {
         const response = this.$route.params.list ? await axios.patch('http://localhost:3000/createlist', listData, {withCredentials: true}) : await axios.post('http://localhost:3000/createlist', listData, {withCredentials: true})
 
         console.log(response.data)
-        if(response.status === 200){
+        if (response.status === 200) {
           this.notification('List saved')
           this.$route.params.list ? location.reload() : await this.$router.push(`/createlist/${listUrl}`);
         } else {
@@ -90,7 +95,7 @@ export default {
     },
     async checkList() {
       if (this.$route.params.list) {
-        try{
+        try {
           const response = await axios.get('http://localhost:3000/editlist', {
             withCredentials: true,
             params: {listUrl: this.$route.params.list}
@@ -146,5 +151,15 @@ export default {
 </script>
 
 <style scoped>
+#create-list {
+
+
+}
+
+#text {
+  color: #999999;
+  margin-bottom: 5rem;
+  margin-top: 5px;
+}
 
 </style>

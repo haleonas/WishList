@@ -11,7 +11,9 @@ import vSelect from 'vue-select'
 import 'buefy/dist/buefy.css'
 import './icons.js'
 
+
 Vue.use(Buefy)
+
 
 Vue.config.productionTip = false
 
