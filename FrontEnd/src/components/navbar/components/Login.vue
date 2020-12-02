@@ -12,6 +12,7 @@
     </a>
 
     <b-dropdown-item aria-role="menu-item" :focusable="false" custom paddingless>
+      
       <form action>
         <div class="modal-card" style="width:300px;">
           <section class="modal-card-body">
@@ -35,6 +36,7 @@
           </footer>
         </div>
       </form>
+
     </b-dropdown-item>
   </b-dropdown>
 </template>
@@ -48,7 +50,7 @@ export default {
     return {
       logUsername: "",
       logPassword: ""
-    };
+    }
   },
   methods: {
     async login() {
@@ -65,7 +67,7 @@ export default {
         let user = response.data.user;
         let token = response.data.token;
         await this.$store.dispatch("login", { user, token });
-        await this.$router.push({name: 'myWishinglists'});
+        await this.$router.push({name: 'Home'});
         this.logUsername = ""
         this.password = ""
       } catch (err) {

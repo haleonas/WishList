@@ -8,7 +8,6 @@
         <app-logout></app-logout>
       </div>
     </nav>
-    {{ navbarState }}
   </div>
 </template>
 

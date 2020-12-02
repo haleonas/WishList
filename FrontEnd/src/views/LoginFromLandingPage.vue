@@ -53,7 +53,6 @@ export default {
         await this.$router.push({name: 'myWishinglists'});
         this.logUsername = ""
         this.logPassword = ""
-        window.location.reload()
       } catch (err) {
         console.log(err);
         this.$buefy.notification.open({
@@ -62,6 +61,7 @@ export default {
           hasIcon: true
         });
       }
+      window.location.reload()
     }
   }
 };
