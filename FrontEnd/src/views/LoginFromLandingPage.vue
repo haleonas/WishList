@@ -61,6 +61,7 @@ export default {
           hasIcon: true
         });
       }
+      window.location.reload()
     }
   }
 };

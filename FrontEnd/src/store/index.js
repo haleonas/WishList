@@ -20,6 +20,30 @@ const mutations = {
   },
   SET_USERS: (state,users) => {
     state.users = users
+  },
+  SET_USERNAME: (state, x) => {
+    state.users = x
+  },
+  setLogUsername(state, logName) {
+    state.logUsername = logName
+  }, 
+  setRegUsername(state, regName) {
+    state.regUsername = regName
+  }, 
+  setLogPassword(state, logPassword) {
+    state.logPassword = logPassword
+  }, 
+  setRegPassword(state, regPassword) {
+    state.regPassword = regPassword
+  }, 
+  setFirstname(state, firstName) {
+    state.myFirstname = firstName
+  }, 
+  setLastname(state, LastName) {
+    state.myLastname = LastName
+  }, 
+  setPhone(state, Phone) {
+    state.myPhone = Phone
   }
 }
 
@@ -35,9 +59,17 @@ export default new Vuex.Store({
     token: '',
     user: {},
     isLoggedIn: false,
-    users: []
+    users: [],
+    logUsername: "",
+    regUsername: "",
+    logPassword: "",
+    regPassword: "",
+    myFirstname: "",
+    myLastname: "",
+    myPhone: ""
   },
   mutations,
+  
   actions: {
     retrieveUsers: async ({commit}) => {
       const response = await axios.get('http://localhost:3000/user',{withCredentials:true})
@@ -66,7 +98,8 @@ export default new Vuex.Store({
     },
     getUsers: state => {
       return state.users
-    }
+    },
+    
   },
   plugins: [createPersistedState()],
   modules: {

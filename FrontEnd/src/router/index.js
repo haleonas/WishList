@@ -9,7 +9,7 @@ import RegisterFromLandingPage from "@/views/RegisterFromLandingPage";
 import DetailedV from '../views/DetailedV.vue'
 import Finalview from '../views/Finalview.vue'
 import LoginFromLandingPage from '../views/LoginFromLandingPage.vue'
-
+import signInOrSignUp from '../views/temp.vue'
 
 Vue.use(VueRouter)
 
@@ -71,6 +71,11 @@ const routes = [
         path: '/login',
         name:'login',
         component: LoginFromLandingPage
+    },
+    {
+        path: '/signInOrSignUp',
+        name:'signInOrSignUp',
+        component: signInOrSignUp
     }
 ]
 

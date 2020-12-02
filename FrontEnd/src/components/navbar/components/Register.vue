@@ -74,17 +74,19 @@ export default {
             },
             {withCredentials: true}
         );
-        this.$buefy.notification.open({
-          message: "You have registered successfully and may now login!",
-          type: "is-success",
-          hasIcon: true
-        });
+        if (response.status === 200) {
+            this.$buefy.notification.open({
+            message: "You have registered successfully and may now login!",
+            type: "is-success",
+            hasIcon: true
+        });          
+        }              
         this.regUsername = ""
         this.password = ""
         this.firstname = ""
         this.lastname = ""
         this.phone = ""
-        console.log(response);
+        window.location.reload()
       } catch (err) {
         this.$buefy.notification.open({
           message: "Username already exists!",
